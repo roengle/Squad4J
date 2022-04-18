@@ -1,0 +1,1 @@
+[2022.04.12-16.45.55:459][294]LogSquadTrace: [DedicatedServer]TraceAndMessageClient(): BP_UH60_C_2143860112: 2.10 damage taken by causer BP_UH60_C_2143860112 instigator Fishnut363 health remaining 35.90

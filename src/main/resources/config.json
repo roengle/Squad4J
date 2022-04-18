@@ -1,0 +1,45 @@
+{
+  "server": {
+    "id": 1,
+    "host": "",
+    "queryPort": 27015,
+    "rconPort": 21114,
+    "rconPassword": "",
+    "logFilePath":"",
+    "adminLists": [
+      {
+        "type": "remote",
+        "source": ""
+      }
+    ]
+  },
+  "connectors": {
+    "discord":{
+      "loginToken": "DiscordLoginToken"
+    },
+    "mysql": {
+      "host": "host",
+      "port": 3306,
+      "username": "sql_username",
+      "password": "sql_password",
+      "database": "sql_schema_name"
+    }
+  },
+  "plugins": {
+    "AdminCamTracker": {
+      "enabled": true
+    },
+    "A2SRulesInfo": {
+      "enabled": true
+    },
+    "ChatCommands": {
+      "enabled": false
+    },
+    "ChatLogger": {
+      "enabled": true
+    }
+  },
+  "logger": {
+    "showDebug": true
+  }
+}

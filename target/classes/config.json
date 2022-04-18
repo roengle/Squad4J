@@ -1,0 +1,45 @@
+{
+  "server": {
+    "id": 1,
+    "host": "45.35.55.30",
+    "queryPort": 27015,
+    "rconPort": 21114,
+    "rconPassword": "M2kh41n5",
+    "logFilePath":"log.txt",
+    "adminLists": [
+      {
+        "type": "remote",
+        "source": "https://remoteadminlist.com/remoteadmin.php?config=16in4AGETF-ZjN9nayJgnxBu_GVxZQTcFMDfMOA53_b0&id=1uecrSAB2kX9l9sKgYFnj9aTdaXZaP4fdXT_TrjYjJ_A&csheet=Sheet1&isheet=Sheet1"
+      }
+    ]
+  },
+  "connectors": {
+    "discord":{
+      "loginToken": "DiscordLoginToken"
+    },
+    "mysql": {
+      "host": "host",
+      "port": 3306,
+      "username": "sql_username",
+      "password": "sql_password",
+      "database": "sql_schema_name"
+    }
+  },
+  "plugins": {
+    "AdminCamTracker": {
+      "enabled": true
+    },
+    "A2SRulesInfo": {
+      "enabled": true
+    },
+    "ChatCommands": {
+      "enabled": false
+    },
+    "ChatLogger": {
+      "enabled": true
+    }
+  },
+  "logger": {
+    "showDebug": true
+  }
+}
