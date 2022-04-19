@@ -1,21 +1,43 @@
-# Squad4J
+<div align="center">
+<h1>Squad4J</h1>
+
+<a href="https://github.com/roengle/Squad4J/releases"><img src="https://img.shields.io/github/v/release/roengle/squad4j?sort=semver" alt="Latest Release"></a>
+<a href="https://github.com/roengle/Squad4J/graphs/contributors"><img src="https://img.shields.io/github/contributors/roengle/squad4j?color=green" alt="Contributors"></a>
+<a href="https://github.com/roengle/Squad4J/blob/development/LICENSE.md"><img src="https://img.shields.io/github/license/roengle/Squad4J" alt="License"></a>
+
+<br>
+<a href="https://github.com/roengle/Squad4J/issues"><img src="https://img.shields.io/github/issues/roengle/Squad4J" alt="Github Issues"></a>
+<a href="https://discord.gg/DjrpPuw"><img src="https://img.shields.io/discord/266210223406972928?label=Support&logo=Discord" alt="Discord Server"></a>
+
+</div>
 
 ## About
 
-Squad4J is **currently in development** and is **actively seeking contributors**!
+Squad4J is **currently in development** and is **actively seeking contributors**! To contribute
 
 Squad4J is a plugin framework written in Java designed to run alongside Squad servers. It draws inspiration 
 from [SquadJS](https://github.com/Team-Silver-Sphere/SquadJS), which was the first framework to successfully
 parse Squad log files to express the state of a server and its players in code.
 
+Since Squad4J is in *development* a lot of sections of this README and code as a whole are **unfinished**.
+
 ## Using Squad4J
 
+Squad4J currently only supports reading log files locally, so it must be run on the same server as your Squad server.
+
+Squad4J requires access to the following for your server:
+- Ability to read `SquadGame.log` file, usually located in `SquadGame/Saved/Logs`.
+- Ability to connect to RCON running on your server (default TCP port 21114).
+  - **If** you have multiple RCON connections to your server, ensure that `MaxConnections` in `Rcon.cfg` is set high enough to accommodate all connections. By default, Squad servers allow 5 simultaneous connections.
+- Ability to query server (default UDP 27165).
+
+If you utilize a firewall, ensure it opens ports to where Squad4J is running.
 ### Prerequisites
 
 - Java 11 (or higher) runtime installed.
 
 ### Base Installation
-If you wish to use Squad4J in its default configuration, simply download the [latest release]()
+This section is WIP.
 
 ### Building Yourself (Required if you write plugins or make changes to Squad4J)
 #### Additional Prerequisites
@@ -24,9 +46,9 @@ If you wish to use Squad4J in its default configuration, simply download the [la
 ## Configuring Squad4J
 
 ## Plugins
-The following plugins are built into Squad4J.
-
 Interested in coding your own plugin? See [Creating Your Own Plugins](./src/main/java/plugins/README.md) for more.
+
+The following plugins are built into Squad4J. See below for how to configure them:
 
 <details>
         <summary>ChatCommands</summary>
