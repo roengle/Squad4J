@@ -2,7 +2,11 @@
 
 ## About
 
-Squad4J is **actively seeking contributors**! 
+Squad4J is **currently in development** and is **actively seeking contributors**!
+
+Squad4J is a plugin framework written in Java designed to run alongside Squad servers. It draws inspiration 
+from [SquadJS](https://github.com/Team-Silver-Sphere/SquadJS), which was the first framework to successfully
+parse Squad log files to express the state of a server and its players in code.
 
 ## Using Squad4J
 
@@ -24,6 +28,46 @@ The following plugins are built into Squad4J.
 
 Interested in coding your own plugin? See [Creating Your Own Plugins](./src/main/java/plugins/README.md) for more.
 
+<details>
+        <summary>ChatCommands</summary>
+        <h2>ChatCommands</h2>
+        <p>Implementation of ChatCommands from <a href="https://github.com/Team-Silver-Sphere/SquadJS#chatcommands">SquadJS</a>. ChatCommands can be configured to warn the user calling a specified command, or broadcast a message to the whole server based on a whole command.</p>
+        <p><b>NOTE:</b> If you configure a command to broadcast to the whole server, it is recommended that the command can only execute from admin chat. To do this, configure the <code>ignoreChats</code> field like such: <code>["ChatAll", "ChatTeam", "ChatSquad"]</code>. This will only allow the command to be executed from <code>ChatAdmin</code>.</p>
+        <h3>Options</h3>
+        <ul>
+        <li>
+            <h4>prefix</h4>
+            <h6>Description</h6>
+            <p>A <b>string</b> which denotes the prefix for all commands. For example commands with names <code>!nextmap</code> and <code>!squad4j</code> should have <code>prefix</code> set to <code>!</code>.</p>
+        </li>
+        <h6>Default</h6>
+        <code>"prefix" : "!"</code>
+        <li>
+            <h4>commands</h4>
+            <h6>Description</h6>
+            <p>An <b>array of objects</b> containing the following properties: 
+                <ul>
+                    <li><code>command</code> - The command that initiates the message.</li>
+                    <li><code>type</code> - Either <code>warn</code> or <code>broadcast</code>.</li>
+                    <li><code>response</code> - The message to respond with.</li>
+                    <li><code>ignoreChats</code> - An array of strings of chat types to ignore. Valid values are <code>ChatAll</code>, <code>ChatTeam</code>, <code>ChatSquad</code>, and <code>ChatAdmin</code>. Other values are simply ignored.</li>
+                </ul>
+            </p>
+            <h6>Default</h6>
+        </li>
+        <pre>
+<code>"options":
+[
+    {
+        "command": "squad4j",
+        "type": "warn",
+        "response": "This server is running Squad4J.",
+        "ignoreChats": []
+    }
+]</code>
+        </pre>
+        </ul>
+</details>
 
 ## Notes from Developer
 

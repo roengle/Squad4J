@@ -30,10 +30,31 @@
       "enabled": true
     },
     "A2SRulesInfo": {
-      "enabled": true
+      "enabled": false
     },
     "ChatCommands": {
-      "enabled": false
+      "enabled": true,
+      "prefix": "!",
+      "commands": [
+        {
+          "command": "woop",
+          "type": "warn",
+          "response": "WOOOOOOOOP",
+          "ignoreChats": []
+        },
+        {
+          "command": "squad4j",
+          "type": "warn",
+          "response": "This server is running Squad4J.",
+          "ignoreChats": []
+        },
+        {
+          "command": "dadmin",
+          "type": "warn",
+          "response": "Wup developed a silly command again.",
+          "ignoreChats": ["ChatAll", "ChatSquad"]
+        }
+      ]
     },
     "ChatLogger": {
       "enabled": true

@@ -81,6 +81,7 @@ public class EventEmitter {
                     boolean enabled = (boolean) pluginConfiguration.get("enabled");
                     if(!enabled){
                         LOGGER.warn("{} not enabled in config.json, skipping event binding.", pluginClass.getSimpleName());
+                        return;
                     }
                 } catch(PathNotFoundException exp){
                     LOGGER.warn("{} does not have a configuration in config.json, skipping event binding.", pluginClass.getSimpleName());

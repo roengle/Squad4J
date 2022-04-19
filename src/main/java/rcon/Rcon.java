@@ -52,8 +52,4 @@ public class Rcon {
         return initialized ? rcon.command(cmd) : "";
     }
 
-    //TODO: Figure out if I should be removed.
-    public static void onRconPacket(Consumer<RconPacket> consumer){
-        rcon.onRconPacket(consumer);
-    }
 }

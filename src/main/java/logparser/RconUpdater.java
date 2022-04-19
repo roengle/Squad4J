@@ -87,7 +87,7 @@ public class RconUpdater {
                     squads.add(squad);
                 }
             }
-            LOGGER.info("Received {} squads.", squads.size());
+            LOGGER.info("Retrieved {} squads.", squads.size());
 
             event = new SquadListUpdatedEvent(new Date(), EventType.SQUADLIST_UPDATED, squads);
 

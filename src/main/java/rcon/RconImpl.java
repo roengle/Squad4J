@@ -14,6 +14,9 @@ import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
@@ -36,6 +39,7 @@ public class RconImpl {
 
     private final Object sync = new Object();
     private final Random rand = new Random();
+    private final boolean executing = false;
 
     private Socket socket;
 
@@ -132,6 +136,7 @@ public class RconImpl {
      * @return the output of the command sent if the RCON server returns one
      */
     protected String command(String command){
+
         final AtomicReference<String> response = new AtomicReference<>();
         response.set("");
 
@@ -145,8 +150,13 @@ public class RconImpl {
         int thisRequestId = requestId;
         //Asynchronously execute command helper method
         CompletableFuture<Void> future = command(command.getBytes(StandardCharsets.UTF_8));
-        //Wait until finished
-        while(!future.isDone()){}
+        try {
+            future.get(1, TimeUnit.SECONDS);
+        } catch (InterruptedException|ExecutionException e) {
+            LOGGER.error(e.getMessage());
+        } catch (TimeoutException e) {
+            LOGGER.debug("Command {} timed out. This is expected if the command isn't supposed to respond.", command);
+        }
         //New list of items to remove from collected list of command responses.
         Collection<RconPacket> removals = new ArrayList<>();
 

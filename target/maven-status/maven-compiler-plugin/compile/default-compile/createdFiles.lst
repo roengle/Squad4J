@@ -62,6 +62,7 @@ util/ClassHelper.class
 listener/logparser/SquadCreatedListener.class
 event/rcon/ChatMessageEvent.class
 listener/logparser/PlayerDisconnectedListener.class
+plugins/ChatCommands$Command.class
 event/Event.class
 a2s/response/Response.class
 event/rcon/PlayerListUpdatedEvent.class
