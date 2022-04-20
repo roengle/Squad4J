@@ -30,16 +30,47 @@
       "enabled": true
     },
     "A2SRulesInfo": {
-      "enabled": true
+      "enabled": false
     },
     "ChatCommands": {
-      "enabled": false
+      "enabled": true,
+      "prefix": "!",
+      "commands": [
+        {
+          "command": "squad4j",
+          "type": "warn",
+          "response": "This server is running Squad4J.",
+          "ignoreChats": []
+        }
+      ]
     },
     "ChatLogger": {
       "enabled": true
     }
   },
   "logger": {
-    "showDebug": true
+    "level": "info",
+    "colors": {
+      "trace": {
+        "bold": false,
+        "color": "default"
+      },
+      "debug": {
+        "bold": true,
+        "color": "default"
+      },
+      "info":{
+        "bold": true,
+        "color": "blue"
+      },
+      "warn": {
+        "bold": true,
+        "color": "yellow"
+      },
+      "error": {
+        "bold": true,
+        "color": "red"
+      }
+    }
   }
 }
