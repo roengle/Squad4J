@@ -1,24 +1,14 @@
 package main;
 
 import a2s.Query;
-import a2s.response.A2SInfoResponse;
-import a2s.response.A2SRulesResponse;
-import ch.qos.logback.classic.Level;
-import concurrent.GlobalThreadPool;
 import logparser.A2SUpdater;
 import logparser.EventEmitter;
 import logparser.RconUpdater;
 import logparser.tailer.TailerService;
-import org.apache.commons.io.input.Tailer;
-import org.apache.commons.io.input.TailerListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import logparser.tailer.LogTailer;
 import rcon.Rcon;
-import util.ConfigLoader;
-
-import java.io.File;
-import java.util.concurrent.*;
+import util.logger.LoggerUtil;
 
 /**
  *    _____                       _ _  _       _
@@ -39,17 +29,13 @@ public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     
     public static void main(String[] args){
+        LoggerUtil.init();
+
         printLogo();
 
         /* Initialize services, squad server instance, log tailer in order. */
         //Initialize RCON service
         Rcon.init();
-
-        //Sends debug logs to console is it is specified in configuration
-        if(ConfigLoader.get("$.logger.showDebug", Boolean.class)){
-            ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) org.slf4j.LoggerFactory.getLogger(ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME);
-            root.setLevel(Level.DEBUG);
-        }
 
         //Initailize query service
         Query.init();

@@ -33,7 +33,7 @@ public class A2SUpdater {
 
             Event event = new A2SUpdatedEvent(new Date(), EventType.A2S_UPDATED, response);
 
-            LOGGER.debug("A2S info received.");
+            LOGGER.debug("A2S info updated");
 
             EventEmitter.emit(event);
         }, 5, 30, TimeUnit.SECONDS);

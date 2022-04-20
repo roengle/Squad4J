@@ -19,9 +19,9 @@ public class EventEmitter {
 
     private static boolean initialized = false;
 
-    //Key: plugin class, value: plugin instance
+    //Map plugin classes to a single instance for that plugin class
     private static final Map<Class<? extends GloballyAttachbleListener>, GloballyAttachbleListener> pluginInstances = new HashMap<>();
-    //Key: event class, value: string for method name
+    //Map an event class to the name of the method it is supposed to call
     private static final Map<Class<? extends Event>, String> eventMethodNames = new HashMap<>();
     //Key: event class, value: List of plugin class instances that contain method corresponding to event
     private static final Map<Class<? extends Event>, List<GloballyAttachbleListener>> eventPluginInstances = new HashMap<>();
@@ -29,6 +29,9 @@ public class EventEmitter {
     private static final Map<Class<? extends GloballyAttachbleListener>, Class<? extends Event>> listenerEvents = new HashMap<>();
 
 
+    /**
+     * Initializes various maps used for event binding.
+     */
     @SuppressWarnings("unchecked")
     private static void initMaps(){
         //Get method names for each type of event
@@ -122,6 +125,10 @@ public class EventEmitter {
 
     }
 
+    /**
+     * Initialize singleton EventEmitter. Builds various mappings for event binding, and displays plugin instances
+     * as well as plugin instances that fire for respective events.
+     */
     public static void init(){
         if(initialized)
             throw new IllegalStateException("This class has already been initialized.");
@@ -144,8 +151,13 @@ public class EventEmitter {
         initialized = true;
     }
 
+    /**
+     * Emits an event to {@link server.SquadServer} and all plugins that are event-bound.
+     *
+     * @param event the event to emit.
+     */
     protected static void emit(Event event) {
-        LOGGER.debug("New event emitted: {}", event);
+        LOGGER.trace("New event emitted: {}", event);
 
         String methodName = eventMethodNames.get(event.getClass());
 

@@ -4,7 +4,6 @@ concurrent/NamedThreadFactory.class
 plugins/ChatLogger.class
 listener/logparser/NewGameListener.class
 listener/rcon/PossessedAdminCameraListener.class
-util/HighlightingCompositeConverterEx.class
 event/logparser/PlayerDamagedEvent.class
 event/logparser/PlayerPossessEvent.class
 logparser/EventEmitter.class
@@ -40,9 +39,11 @@ plugins/AdminCamTracker.class
 a2s/QueryImpl.class
 util/BufferHelper.class
 concurrent/GlobalThreadPool.class
+util/logger/LoggerUtil.class
 event/a2s/A2SUpdatedEvent.class
 event/logparser/NewGameEvent.class
 a2s/response/A2SRulesResponse.class
+util/logger/HighlightingCompositeConverterEx.class
 event/logparser/PlayerUnPossessEvent.class
 listener/rcon/UnpossessedAdminCameraListener.class
 logparser/LogParser$1.class

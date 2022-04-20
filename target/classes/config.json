@@ -61,6 +61,28 @@
     }
   },
   "logger": {
-    "showDebug": true
+    "level": "debug",
+    "colors": {
+      "trace": {
+        "bold": false,
+        "color": "default"
+      },
+      "debug": {
+        "bold": true,
+        "color": "green"
+      },
+      "info":{
+        "bold": true,
+        "color": "blue"
+      },
+      "warn": {
+        "bold": true,
+        "color": "yellow"
+      },
+      "error": {
+        "bold": true,
+        "color": "red"
+      }
+    }
   }
 }
