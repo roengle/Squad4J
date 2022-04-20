@@ -1,6 +1,6 @@
-package logparser.tailer;
+package server.tailer;
 
-import logparser.A2SUpdater;
+import server.A2SUpdater;
 import org.apache.commons.io.input.Tailer;
 import org.apache.commons.io.input.TailerListener;
 import org.slf4j.Logger;

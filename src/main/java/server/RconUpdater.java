@@ -1,10 +1,11 @@
-package logparser;
+package server;
 
 import concurrent.GlobalThreadPool;
 import entity.Player;
 import entity.Squad;
 import event.Event;
 import event.EventType;
+import event.rcon.LayerInfoUpdatedEvent;
 import event.rcon.PlayerListUpdatedEvent;
 import event.rcon.SquadListUpdatedEvent;
 import org.slf4j.Logger;
@@ -23,8 +24,11 @@ public class RconUpdater {
     private static final Logger LOGGER = LoggerFactory.getLogger(RconUpdater.class);
 
     private static boolean initialized = false;
+
     private static final Pattern playerPattern = Pattern.compile("ID: ([0-9]+) \\| SteamID: ([0-9]+) \\| Name: (.+) \\| Team ID: (1|2) \\| Squad ID: ([0-9]+|N\\/A) \\| Is Leader: (True|False) \\| Role: (.+)");
     private static final Pattern squadPattern = Pattern.compile("ID: ([0-9]+) \\| Name: (.+) \\| Size: ([0-9]+) \\| Locked: (True|False) \\| Creator Name: (.+) \\| Creator Steam ID: ([0-9]{17})");
+    private static final Pattern currentLayerPattern = Pattern.compile("Current level is (?:.+), layer is (.+)");
+    private static final Pattern nextLayerPattern = Pattern.compile("Next level is (?:.+), layer is (.+)");
 
     private RconUpdater(){
         throw new IllegalStateException("This class cannot be instantiated.");
@@ -90,6 +94,26 @@ public class RconUpdater {
             LOGGER.info("Retrieved {} squads.", squads.size());
 
             event = new SquadListUpdatedEvent(new Date(), EventType.SQUADLIST_UPDATED, squads);
+
+            EventEmitter.emit(event);
+
+            LOGGER.info("Retrieving layer information");
+            String currentLayer = "";
+            String nextLayer = "";
+
+            response = Rcon.command("ShowCurrentMap");
+            Matcher matcher = currentLayerPattern.matcher(response);
+            if(matcher.find()){
+                currentLayer = matcher.group(1);
+            }
+
+            response = Rcon.command("ShowNextMap");
+            matcher = nextLayerPattern.matcher(response);
+            if(matcher.find()){
+                nextLayer = matcher.group(1);
+            }
+
+            event = new LayerInfoUpdatedEvent(new Date(), EventType.LAYERINFO_UPDATED, currentLayer, nextLayer);
 
             EventEmitter.emit(event);
         }, 5, 30, TimeUnit.SECONDS);

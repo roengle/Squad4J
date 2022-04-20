@@ -1,4 +1,4 @@
-package logparser;
+package server;
 
 import event.Event;
 import event.EventType;

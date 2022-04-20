@@ -1,13 +1,14 @@
 package main;
 
 import a2s.Query;
-import logparser.A2SUpdater;
-import logparser.EventEmitter;
-import logparser.RconUpdater;
-import logparser.tailer.TailerService;
+import server.A2SUpdater;
+import server.EventEmitter;
+import server.RconUpdater;
+import server.tailer.TailerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rcon.Rcon;
+import server.SquadServer;
 import util.logger.LoggerUtil;
 
 /**
@@ -29,6 +30,7 @@ public class Main {
     private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
     
     public static void main(String[] args){
+        //Initialize logger before pushing any output to console
         LoggerUtil.init();
 
         printLogo();
@@ -47,6 +49,8 @@ public class Main {
         //Initialize log tailer service
         TailerService.init();
 
+        //Initialize squad server
+        SquadServer.init();
     }
 
     private static void printLogo() {

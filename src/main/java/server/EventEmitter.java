@@ -1,4 +1,4 @@
-package logparser;
+package server;
 
 import com.jayway.jsonpath.PathNotFoundException;
 import event.Event;
@@ -152,12 +152,13 @@ public class EventEmitter {
     }
 
     /**
-     * Emits an event to {@link server.SquadServer} and all plugins that are event-bound.
+     * Emits an event to {@link SquadServer} and all plugins that are event-bound.
      *
      * @param event the event to emit.
      */
     protected static void emit(Event event) {
         LOGGER.trace("New event emitted: {}", event);
+        SquadServer.receiveEvent(event);
 
         String methodName = eventMethodNames.get(event.getClass());
 

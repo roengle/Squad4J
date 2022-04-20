@@ -1,12 +1,10 @@
 package rcon;
 
-import logparser.LogParser;
+import server.LogParser;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rcon.ex.AuthenticationException;
 import util.ConfigLoader;
-
-import java.util.function.Consumer;
 
 /**
  * @author Robert Engle

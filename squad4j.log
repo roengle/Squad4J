@@ -1682,49 +1682,49 @@
 [2022-04-06 15:06:09] [INFO] [Main] -             |_|                                 
 [2022-04-06 15:06:09] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 15:06:09] [INFO] [Query] - Starting query service.
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onSquadCreated
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onRoundWinner
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerWarned
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerPossess
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerKicked
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPossessedAdminCamera
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onChatMessage
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerBanned
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onDeployableDamaged
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerDied
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerUnPossess
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onServerTickRate
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerDamaged
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onUnpossessedAdminCamera
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onA2SUpdated
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onPlayerWoundedEvent
-[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 15:06:09] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 15:06:09] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 15:06:09] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
 [2022-04-06 15:06:11] [INFO] [EventEmitter] - Event{time=Wed Apr 06 15:06:11 PDT 2022, type=PLAYER_WARNED, chainID=null}
@@ -1745,22 +1745,22 @@
 [2022-04-06 15:08:10] [INFO] [Main] -             |_|                                 
 [2022-04-06 15:08:10] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 15:08:10] [INFO] [Query] - Starting query service.
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onSquadCreated
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	SquadCreatedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onRoundWinner
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	RoundWinnerEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	NewGameEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerWarned
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerWarnedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerPossess
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerPossessEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerRevivedEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
@@ -1769,34 +1769,34 @@
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPossessedAdminCamera
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PossessedAdminCameraEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerConnectedEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onChatMessage
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	ChatMessageEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	AdminBroadcastEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerBanned
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerBannedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onDeployableDamaged
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	DeployableDamagedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerDied
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerDiedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerUnPossess
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerUnPossessEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onServerTickRate
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	ServerTickRateEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerDamaged
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerDamagedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerDisconnectedEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
@@ -1805,10 +1805,10 @@
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onA2SUpdated
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	A2SUpdatedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onPlayerWoundedEvent
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	PlayerWoundedEvent
-[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 15:08:10] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 15:08:10] [INFO] [EventEmitter] - 	SteamidConnectedEvent
 [2022-04-06 15:08:10] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
@@ -1828,22 +1828,22 @@
 [2022-04-06 16:16:25] [INFO] [Main] -             |_|                                 
 [2022-04-06 16:16:25] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 16:16:25] [INFO] [Query] - Starting query service.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onSquadCreated
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - SquadCreatedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onRoundWinner
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - RoundWinnerEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - NewGameEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerWarned
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerWarnedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerPossess
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerPossessEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerRevivedEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
@@ -1852,34 +1852,34 @@
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPossessedAdminCamera
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PossessedAdminCameraEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerConnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onChatMessage
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - ChatMessageEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - AdminBroadcastEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerBanned
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerBannedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onDeployableDamaged
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - DeployableDamagedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerDied
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerDiedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerUnPossess
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerUnPossessEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onServerTickRate
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - ServerTickRateEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerDamaged
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerDamagedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerDisconnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
@@ -1888,10 +1888,10 @@
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onA2SUpdated
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - A2SUpdatedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onPlayerWoundedEvent
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - PlayerWoundedEvent is not a subclass of Event.
-[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 16:16:26] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 16:16:26] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 16:16:26] [ERROR] [EventEmitter] - SteamidConnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:26] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
@@ -1905,22 +1905,22 @@
 [2022-04-06 16:16:56] [INFO] [Main] -             |_|                                 
 [2022-04-06 16:16:56] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 16:16:56] [INFO] [Query] - Starting query service.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onSquadCreated
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - SquadCreatedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onRoundWinner
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - RoundWinnerEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - NewGameEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerWarned
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerWarnedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerPossess
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerPossessEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerRevivedEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
@@ -1929,34 +1929,34 @@
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPossessedAdminCamera
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PossessedAdminCameraEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerConnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onChatMessage
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - ChatMessageEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - AdminBroadcastEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerBanned
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerBannedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onDeployableDamaged
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - DeployableDamagedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerDied
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerDiedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerUnPossess
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerUnPossessEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onServerTickRate
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - ServerTickRateEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerDamaged
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerDamagedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerDisconnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
@@ -1965,10 +1965,10 @@
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onA2SUpdated
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - A2SUpdatedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onPlayerWoundedEvent
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - PlayerWoundedEvent is not a subclass of Event.
-[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 16:16:56] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 16:16:56] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 16:16:56] [ERROR] [EventEmitter] - SteamidConnectedEvent is not a subclass of Event.
 [2022-04-06 16:16:56] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
@@ -1984,49 +1984,49 @@
 [2022-04-06 16:17:56] [INFO] [Main] -             |_|                                 
 [2022-04-06 16:17:56] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 16:17:56] [INFO] [Query] - Starting query service.
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onSquadCreated
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onRoundWinner
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerWarned
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerPossess
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerKicked
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPossessedAdminCamera
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onChatMessage
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerBanned
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onDeployableDamaged
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerDied
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerUnPossess
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onServerTickRate
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerDamaged
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onUnpossessedAdminCamera
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onA2SUpdated
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onPlayerWoundedEvent
-[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 16:17:56] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 16:17:56] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 16:17:56] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
 [2022-04-06 16:18:01] [INFO] [EventEmitter] - Event{time=Wed Apr 06 16:18:01 PDT 2022, type=A2S_UPDATED, chainID=null}
@@ -2051,22 +2051,22 @@
 [2022-04-06 16:18:47] [INFO] [Main] -             |_|                                 
 [2022-04-06 16:18:47] [INFO] [Rcon] - Connecting to RCON server.
 [2022-04-06 16:18:47] [INFO] [Query] - Starting query service.
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.SquadCreatedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.SquadCreatedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onSquadCreated
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:SquadCreatedEvent vonSquadCreated
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.RoundWinnerListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.RoundWinnerListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onRoundWinner
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:RoundWinnerEvent vonRoundWinner
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.NewGameListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.NewGameListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onNewGame
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:NewGameEvent vonNewGame
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.PlayerWarnedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerWarned
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerWarnedEvent vonPlayerWarned
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerPossessListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerPossessListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerPossess
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerPossessEvent vonPlayerPossess
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerRevivedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerRevivedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerRevived
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerRevivedEvent vonPlayerRevived
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.PlayerKickedListener
@@ -2075,34 +2075,34 @@
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.PossessedAdminCameraListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPossessedAdminCamera
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PossessedAdminCameraEvent vonPossessedAdminCamera
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerConnectedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerConnectedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerConnected
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerConnectedEvent vonPlayerConnected
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.ChatMessageListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onChatMessage
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:ChatMessageEvent vonChatMessage
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.AdminBroadcastListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.AdminBroadcastListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onAdminBroadcast
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:AdminBroadcastEvent vonAdminBroadcast
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.PlayerBannedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerBanned
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerBannedEvent vonPlayerBanned
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.DeployableDamagedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.DeployableDamagedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onDeployableDamaged
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:DeployableDamagedEvent vonDeployableDamaged
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerDiedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerDiedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerDied
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerDiedEvent vonPlayerDied
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerUnPossessListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerUnPossessListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerUnPossess
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerUnPossessEvent vonPlayerUnPossess
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.ServerTickRateListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.ServerTickRateListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onServerTickRate
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:ServerTickRateEvent vonServerTickRate
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerDamagedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerDamagedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerDamaged
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerDamagedEvent vonPlayerDamaged
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerDisconnectedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerDisconnectedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerDisconnected
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerDisconnectedEvent vonPlayerDisconnected
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.rcon.UnpossessedAdminCameraListener
@@ -2111,10 +2111,10 @@
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.a2s.A2SUpdatedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onA2SUpdated
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:A2SUpdatedEvent vonA2SUpdated
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.PlayerWoundedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.PlayerWoundedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onPlayerWoundedEvent
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:PlayerWoundedEvent vonPlayerWoundedEvent
-[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.logparser.SteamidConnectedListener
+[2022-04-06 16:18:47] [INFO] [EventEmitter] - listener.server.SteamidConnectedListener
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - onSteamidConnected
 [2022-04-06 16:18:47] [INFO] [EventEmitter] - Putting k:SteamidConnectedEvent vonSteamidConnected
 [2022-04-06 16:18:47] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
@@ -2174,28 +2174,28 @@
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class plugins.AdminCamTracker - plugins.AdminCamTracker@44a3ec6b
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class plugins.A2STestPlugin - plugins.A2STestPlugin@71623278
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - Method names for events
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.AdminBroadcastEvent - onAdminBroadcast
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerDamagedEvent - onPlayerDamaged
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerWoundedEvent - onPlayerWoundedEvent
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.NewGameEvent - onNewGame
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerUnPossessEvent - onPlayerUnPossess
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerDisconnectedEvent - onPlayerDisconnected
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.AdminBroadcastEvent - onAdminBroadcast
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerDamagedEvent - onPlayerDamaged
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerWoundedEvent - onPlayerWoundedEvent
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.NewGameEvent - onNewGame
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerUnPossessEvent - onPlayerUnPossess
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerDisconnectedEvent - onPlayerDisconnected
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.PlayerWarnedEvent - onPlayerWarned
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.PlayerKickedEvent - onPlayerKicked
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.SquadCreatedEvent - onSquadCreated
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.SquadCreatedEvent - onSquadCreated
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.a2s.A2SUpdatedEvent - onA2SUpdated
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.SteamidConnectedEvent - onSteamidConnected
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.SteamidConnectedEvent - onSteamidConnected
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.PossessedAdminCameraEvent - onPossessedAdminCamera
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.DeployableDamagedEvent - onDeployableDamaged
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.RoundWinnerEvent - onRoundWinner
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerPossessEvent - onPlayerPossess
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerRevivedEvent - onPlayerRevived
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.DeployableDamagedEvent - onDeployableDamaged
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.RoundWinnerEvent - onRoundWinner
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerPossessEvent - onPlayerPossess
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerRevivedEvent - onPlayerRevived
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.ChatMessageEvent - onChatMessage
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerDiedEvent - onPlayerDied
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerDiedEvent - onPlayerDied
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.PlayerBannedEvent - onPlayerBanned
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.PlayerConnectedEvent - onPlayerConnected
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.PlayerConnectedEvent - onPlayerConnected
 [2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.rcon.UnpossessedAdminCameraEvent - onUnpossessedAdminCamera
-[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.logparser.ServerTickRateEvent - onServerTickRate
+[2022-04-06 16:26:37] [INFO] [EventEmitter] - class event.server.ServerTickRateEvent - onServerTickRate
 [2022-04-06 16:26:37] [INFO] [Main] - Watching logfile /home/robert/IdeaProjects/Squad4J/log.txt
 [2022-04-06 16:26:42] [INFO] [EventEmitter] - Event{time=Wed Apr 06 16:26:42 PDT 2022, type=A2S_UPDATED, chainID=null}
 [2022-04-06 16:26:42] [INFO] [EventEmitter] - A2SUpdatedEvent

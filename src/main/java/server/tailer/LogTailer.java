@@ -1,6 +1,6 @@
-package logparser.tailer;
+package server.tailer;
 
-import logparser.LogParser;
+import server.LogParser;
 import org.apache.commons.io.input.TailerListenerAdapter;
 
 public class LogTailer extends TailerListenerAdapter {

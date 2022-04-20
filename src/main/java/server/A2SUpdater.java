@@ -1,8 +1,7 @@
-package logparser;
+package server;
 
 import a2s.Query;
 import a2s.response.A2SCombinedResponse;
-import a2s.response.A2SInfoResponse;
 import concurrent.GlobalThreadPool;
 import event.Event;
 import event.EventType;
@@ -11,7 +10,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.util.Date;
-import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 public class A2SUpdater {
