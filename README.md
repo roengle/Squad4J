@@ -1,4 +1,6 @@
 <div align="center">
+<img src = "assets/squad4jlogo.png" alt="Squad4J Logo" />
+
 <h1>Squad4J</h1>
 
 <a href="https://github.com/roengle/Squad4J/releases"><img src="https://img.shields.io/github/v/release/roengle/squad4j?sort=semver" alt="Latest Release"></a>
@@ -7,6 +9,7 @@
 
 <br>
 <a href="https://github.com/roengle/Squad4J/issues"><img src="https://img.shields.io/github/issues/roengle/Squad4J" alt="Github Issues"></a>
+<a href=""><img src = "https://img.shields.io/github/issues-pr-raw/roengle/squad4j" alt = "Github Pull Requests"></a>
 <a href="https://discord.gg/DjrpPuw"><img src="https://img.shields.io/discord/266210223406972928?label=Support&logo=Discord" alt="Discord Server"></a>
 
 </div>
