@@ -6,4 +6,8 @@ public abstract class Connector {
     protected Connector(String connectorName) {
         this.connectorName = connectorName;
     }
+
+    public String getConnectorName() {
+        return connectorName;
+    }
 }

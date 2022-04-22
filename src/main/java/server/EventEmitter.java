@@ -107,7 +107,7 @@ public class EventEmitter {
                     LOGGER.error("{} cannot be instantiated. Make sure it is NOT abstract.", pluginClass.getSimpleName());
                     LOGGER.error(e.getMessage());
                 } catch (IllegalAccessException e) {
-                    LOGGER.error("{} have a non-public constructor, it cannot be instantiated from {}.", pluginClass.getSimpleName(), EventEmitter.class.getSimpleName());
+                    LOGGER.error("{} has a non-public constructor, it cannot be instantiated from {}.", pluginClass.getSimpleName(), EventEmitter.class.getSimpleName());
                     LOGGER.error(e.getMessage());
                 }
 
