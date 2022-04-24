@@ -7,16 +7,16 @@ import ch.qos.logback.core.pattern.color.ForegroundCompositeConverterBase;
 import util.ConfigLoader;
 
 public class HighlightingCompositeConverterEx extends ForegroundCompositeConverterBase<ILoggingEvent> {
-    private static final boolean traceBold = ConfigLoader.get("$.logger.colors.trace.bold", Boolean.class);
-    private static final String traceColor = ConfigLoader.get("$.logger.colors.trace.color", String.class);
-    private static final boolean debugBold = ConfigLoader.get("$.logger.colors.debug.bold", Boolean.class);
-    private static final String debugColor = ConfigLoader.get("$.logger.colors.debug.color", String.class);
-    private static final boolean infoBold = ConfigLoader.get("$.logger.colors.info.bold", Boolean.class);
-    private static final String infoColor = ConfigLoader.get("$.logger.colors.info.color", String.class);
-    private static final boolean warnBold = ConfigLoader.get("$.logger.colors.warn.bold", Boolean.class);
-    private static final String warnColor = ConfigLoader.get("$.logger.colors.warn.color", String.class);
-    private static final boolean errorBold = ConfigLoader.get("$.logger.colors.error.bold", Boolean.class);
-    private static final String errorColor = ConfigLoader.get("$.logger.colors.error.color", String.class);
+    private static final boolean traceBold = ConfigLoader.get("$.logging.colors.trace.bold", Boolean.class);
+    private static final String traceColor = ConfigLoader.get("$.logging.colors.trace.color", String.class);
+    private static final boolean debugBold = ConfigLoader.get("$.logging.colors.debug.bold", Boolean.class);
+    private static final String debugColor = ConfigLoader.get("$.logging.colors.debug.color", String.class);
+    private static final boolean infoBold = ConfigLoader.get("$.logging.colors.info.bold", Boolean.class);
+    private static final String infoColor = ConfigLoader.get("$.logging.colors.info.color", String.class);
+    private static final boolean warnBold = ConfigLoader.get("$.logging.colors.warn.bold", Boolean.class);
+    private static final String warnColor = ConfigLoader.get("$.logging.colors.warn.color", String.class);
+    private static final boolean errorBold = ConfigLoader.get("$.logging.colors.error.bold", Boolean.class);
+    private static final String errorColor = ConfigLoader.get("$.logging.colors.error.color", String.class);
 
     @Override
     protected String getForegroundColorCode(ILoggingEvent event) {

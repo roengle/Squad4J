@@ -23,7 +23,7 @@ public class DevelopmentTestPlugin implements A2SUpdatedListener, LayerInfoUpdat
     public void onA2SUpdated(A2SUpdatedEvent a2SUpdatedEvent) {
         A2SRulesResponse rules = a2SUpdatedEvent.getResponse().getRules();
         rules.getRuleEntrySet().forEach(entry -> {
-            LOGGER.info("{} : {}", entry.getKey(), entry.getValue());
+            LOGGER.debug("{} : {}", entry.getKey(), entry.getValue());
         });
     }
 

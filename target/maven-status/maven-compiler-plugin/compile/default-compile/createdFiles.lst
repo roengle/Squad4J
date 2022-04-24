@@ -5,6 +5,7 @@ concurrent/NamedThreadFactory.class
 plugins/ChatLogger.class
 listener/logparser/NewGameListener.class
 listener/rcon/PossessedAdminCameraListener.class
+server/SquadServer$1.class
 event/logparser/PlayerDamagedEvent.class
 event/logparser/PlayerPossessEvent.class
 entity/Squad.class
