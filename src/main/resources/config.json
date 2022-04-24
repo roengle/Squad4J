@@ -1,15 +1,19 @@
 {
-  "server": {
+    "server": {
     "id": 1,
     "host": "",
-    "queryPort": 27015,
+    "queryPort": 27165,
     "rconPort": 21114,
     "rconPassword": "",
     "logFilePath":"",
     "adminLists": [
       {
         "type": "remote",
-        "source": ""
+        "source": "http://yourwebsite.com/Admins.cfg"
+      },
+      {
+        "type": "local",
+        "source": "/home/squadserver/SquadGame/ServerConfig/Admins.cfg"
       }
     ]
   },
@@ -29,9 +33,6 @@
     "AdminCamTracker": {
       "enabled": true
     },
-    "A2SRulesInfo": {
-      "enabled": false
-    },
     "ChatCommands": {
       "enabled": true,
       "prefix": "!",
@@ -46,9 +47,12 @@
     },
     "ChatLogger": {
       "enabled": true
+    },
+    "DevelopmentTestPlugin": {
+      "enabled": true
     }
   },
-  "logger": {
+  "logging": {
     "level": "info",
     "colors": {
       "trace": {
@@ -57,7 +61,7 @@
       },
       "debug": {
         "bold": true,
-        "color": "default"
+        "color": "green"
       },
       "info":{
         "bold": true,
