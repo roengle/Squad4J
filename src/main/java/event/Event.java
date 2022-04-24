@@ -42,15 +42,15 @@ public abstract class Event {
         this.chainID = null;
     }
 
-    protected Date getTime(){
+    public Date getTime(){
         return this.time;
     }
 
-    protected EventType getType() {
+    public EventType getType() {
         return this.type;
     }
 
-    protected Optional<Integer> getChainID() {
+    public Optional<Integer> getChainID() {
         return Optional.ofNullable(this.chainID);
     }
 

@@ -222,6 +222,7 @@ public class RconImpl {
         } catch (IOException e) {
             LOGGER.error("Error with socket stream");
             LOGGER.error(e.getMessage());
+            reconnect();
         }
         return status;
     }
@@ -273,6 +274,7 @@ public class RconImpl {
             RconPacket pak2 = read(socket.getInputStream());
             //If auth response packet has request id of -1, then it is an incorrect password
             if(pak2 != null && pak2.getRequestId() == -1){
+                LOGGER.error("Incorrect RCON password.");
                 throw new AuthenticationException("Incorrect password.");
             }
         } catch (IOException e) {

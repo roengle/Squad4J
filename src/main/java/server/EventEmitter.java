@@ -137,14 +137,14 @@ public class EventEmitter {
 
         LOGGER.debug("Plugin Instances:");
         pluginInstances.forEach((k, v) -> {
-            LOGGER.debug("\t{} - {}", k ,v);
+            LOGGER.trace("\t{} - {}", k ,v);
         });
 
         LOGGER.debug("Event plugin instances:");
         eventPluginInstances.forEach((k, list) -> {
             LOGGER.debug("\t{}", k);
             list.forEach(v -> {
-                LOGGER.debug("\t\t{}" ,v);
+                LOGGER.trace("\t\t{}" ,v);
             });
         });
 

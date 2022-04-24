@@ -47,6 +47,144 @@ This section is WIP.
 - Maven - Must be able to use Maven through the command-line with the `mvn` command or through your IDE.
 
 ## Configuring Squad4J
+Squad4J is configured via a JSON file called `config.json`. In a development environment, this is found in 
+`src/main/resources/`, but in production it can exist in the same directory as the compiled jar file.
+
+<details>
+  <summary>Server</summary>
+  <h3>Server Configuration</h3>
+  <p>The <code>server</code> configuration defines information about the Squad server.</p>
+<pre>
+<code>"server": {
+  "id": 1,
+  "host": "",
+  "queryPort": 27165,
+  "rconPort": 21114,
+  "rconPassword": "",
+  "logFilePath":"",
+  "adminLists": [
+    {
+      "type": "remote",
+      "source": "http://yourwebsite.com/Admins.cfg"
+    },
+    {
+      "type": "local",
+      "source": "/home/squadserver/SquadGame/ServerConfig/Admins.cfg"
+    }
+  ]
+}</code>
+</pre>
+  <ul>
+    <li><code>id</code> - Unique integer to identify your server.</li>
+    <li><code>host</code> - The IP address of your server.</li>
+    <li><code>queryPort</code> - The query port that your Squad server listens on. Default is <code>27165</code>.</li>
+    <li><code>rconPort</code> - The RCON port your Squad RCON server listens on. Default is <code>21114</code>.</li>
+    <li><code>rconPassword</code> - The RCON password for your Squad server.</li>
+    <li><code>logFilePath</code> - The <b>absolute path</b> of the <code>SquadGame.log</code> file. For example: 
+      <code>C:/servers/squad/SquadGame/Saved/Logs/SquadGame.log</code> or <code>/home/squadserver/SquadGame/Saved/Logs/SquadGame.log</code>.</li>
+    <li><code>adminLists</code> - An array of admin lists. These should only include actual admins for the server. Each object in the array should contain:</li>
+      <ul>
+        <li><code>type</code> - Either <code>remote</code> or <code>local</code>.</li>
+        <li><code>source</code> - A file path if <code>type</code> is set to <code>local</code>, or a web URL to a remote list if 
+          <code>type</code> is set to <code>remove</code>.</li>
+      </ul>
+  </ul>
+  
+</details>
+
+<details>
+  <summary>Logging</summary>
+  <h3>Logging Configuration</h3>
+  <p>The <code>logging</code> section defines properties for the logging outputted to the console.</p>
+  <h6>Default Configuration</h6>
+<pre>
+<code>"logging": {
+  "level": "info",
+  "colors": {
+    "trace": {
+      "bold": false,
+      "color": "default"
+    },
+    "debug": {
+      "bold": true,
+      "color": "green"
+    },
+    "info":{
+      "bold": true,
+      "color": "blue"
+    },
+    "warn": {
+      "bold": true,
+      "color": "yellow"
+    },
+    "error": {
+      "bold": true,
+      "color": "red"
+    }
+  }
+}</code>
+</pre>
+  <h4>Options</h4>
+  <ul>
+  <li>
+    <h4>level</h4>
+    <h6>Description</h6>
+    <p>The minimum logging level to output to the console. Any levels <b>above</b> or <b>equal</b> this level will be outputted to the console, and any levels <b>below</b> will not be outputted. See the picture below:</p><br>
+    <div style="text-align: center;"><img src="assets/Log_Levels.png" height="350" alt="Logging Levels"></div>
+    <p>For example, if level is <code>info</code>, then <code>info</code> and anything above it(<code>warn</code> and <code>error</code>) will be logged to the console. </p>
+    <h6>Available Values</h6>
+    <p>The following is the available values for <code>level</code>:</p>
+    <ul>
+      <li><code>error</code> - Only log errors to the console.</li>
+      <li><code>warn</code> - Log errors and warnings to the console.</li>
+      <li><code>info</code> - <i>Default</i>. Log errors, warnings, and informational messages are sent to the console. This option is the recommended option to use for the <code>level</code> option.</li>
+      <li><code>debug</code> - Log errors, warnings, informational messages, and debug messages are sent to the console. This option is good for debugging new and existing plugins.</li>
+      <li><code>trace</code> - Log errors, warnings, informational messages, debug messages, and trace messages to the console. This option is <b>NOT RECOMMENDED</b> for use in production.</li>
+      <li><code>all</code> - Log <b>everything</b> the console. This option is <b>NOT RECOMMENDED</b> for use in production.</li>
+    </ul>
+    <h6>Default</h6>
+    <code>"level" : "info"</code>
+  </li><br>
+  <li>
+    <h4>colors</h4>
+    <p>JSON Object which defines the color scheme used for various logging levels. Has configurations for <code>trace</code>, <code>debug</code>, <code>debug</code>, <code>info</code>, 
+      <code>warn</code>, and <code>error</code> levels.</p><br>
+    <p>Each level configuration has the following options:</p>
+    <ul>
+      <li><code>bold</code> - Boolean value for if the text should be bolded. Can either <code>true</code> or <code>false</code>. Ensure that
+        the value does not have quotes around it.</li>
+      <li><code>color</code> - String value for the color the logging level should display as. Available values are 
+        <code>black</code>, <code>blue</code>, <code>cyan</code>, <code>green</code>, <code>magenta</code>, <code>red</code>, 
+        <code>white</code>, <code>yellow</code>, or <code>default</code>. If name is invalid, then the <code>default</code> color will be used.</li>
+    <h6>Default</h6>
+<pre>
+<code>"colors": {
+  "trace": {
+    "bold": false,
+    "color": "default"
+  },
+  "debug": {
+    "bold": true,
+    "color": "green"
+  },
+  "info":{
+    "bold": true,
+    "color": "blue"
+  },
+  "warn": {
+    "bold": true,
+    "color": "yellow"
+  },
+  "error": {
+    "bold": true,
+    "color": "red"
+  }
+}</code>
+</pre>
+    </ul>
+  </li>
+  </ul>
+</details>
 
 ## Plugins
 Interested in coding your own plugin? See [Creating Your Own Plugins](./src/main/java/plugins/README.md) for more.
@@ -55,10 +193,10 @@ The following plugins are built into Squad4J. See below for how to configure the
 
 <details>
         <summary>ChatCommands</summary>
-        <h2>ChatCommands</h2>
+        <h3>ChatCommands</h3>
         <p>Implementation of ChatCommands from <a href="https://github.com/Team-Silver-Sphere/SquadJS#chatcommands">SquadJS</a>. ChatCommands can be configured to warn the user calling a specified command, or broadcast a message to the whole server based on a whole command.</p>
         <p><b>NOTE:</b> If you configure a command to broadcast to the whole server, it is recommended that the command can only execute from admin chat. To do this, configure the <code>ignoreChats</code> field like such: <code>["ChatAll", "ChatTeam", "ChatSquad"]</code>. This will only allow the command to be executed from <code>ChatAdmin</code>.</p>
-        <h3>Options</h3>
+        <h4>Options</h4>
         <ul>
         <li>
             <h4>prefix</h4>

@@ -15,7 +15,7 @@ public class LoggerUtil {
 
         ch.qos.logback.classic.Logger root = (ch.qos.logback.classic.Logger) org.slf4j.LoggerFactory.getLogger(ch.qos.logback.classic.Logger.ROOT_LOGGER_NAME);
 
-        String loggerLevel = ConfigLoader.get("$.logger.level", String.class).toLowerCase();
+        String loggerLevel = ConfigLoader.get("$.logging.level", String.class).toLowerCase();
         switch(loggerLevel){
             case "trace":
                 root.setLevel(Level.TRACE);
@@ -28,6 +28,9 @@ public class LoggerUtil {
                 break;
             case "error":
                 root.setLevel(Level.ERROR);
+                break;
+            case "all":
+                root.setLevel(Level.ALL);
                 break;
             default:
                 root.setLevel(Level.INFO);
