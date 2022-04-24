@@ -1,5 +1,5 @@
 {
-  "server": {
+    "server": {
     "id": 1,
     "host": "",
     "queryPort": 27165,
