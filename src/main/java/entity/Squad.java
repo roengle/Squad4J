@@ -46,4 +46,5 @@ public class Squad {
     public String getCreatorSteam64id() {
         return creatorSteam64id;
     }
+
 }

@@ -48,6 +48,11 @@ public class A2SInfoResponse extends Response{
     //EDF & 0x01
     private final Long gameID;
 
+    /**
+     * Constructs a {@link A2SInfoResponse} given byte data of the response.
+     *
+     * @param data an array of bytes that the A2S query responded with
+     */
     private A2SInfoResponse(byte[] data){
         super(data);
 

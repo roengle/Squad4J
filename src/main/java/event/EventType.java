@@ -3,7 +3,7 @@ package event;
 /**
  * @author Robert Engle
  *
- * A class descibing the types of events that can occur from either the log file or the RCON console.
+ * A class descibing the types of events that can occur from either the log file, RCON console, or A2S queries.
  */
 public enum EventType {
     //Log file

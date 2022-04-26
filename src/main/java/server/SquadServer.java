@@ -6,6 +6,7 @@ import entity.Player;
 import event.Event;
 import event.EventType;
 import event.a2s.A2SUpdatedEvent;
+import event.logparser.NewGameEvent;
 import event.rcon.LayerInfoUpdatedEvent;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -34,6 +35,8 @@ public class SquadServer {
     private static String gameVersion;
     private static Double matchTimeout;
 
+    private static Integer maxTickRate;
+
     private SquadServer(){
 
     }
@@ -50,7 +53,7 @@ public class SquadServer {
      *
      * @param ev the {@link Event} emitted by {@link EventEmitter}
      */
-    protected static void receiveEvent(Event ev){
+    protected static void receiveEvent(final Event ev){
         EventType type = ev.getType();
 
         switch(type){
@@ -75,19 +78,16 @@ public class SquadServer {
                 LOGGER.trace("Done updating SquadServer A2S info");
 
                 break;
+            case NEW_GAME:
+                NewGameEvent newGameEvent = (NewGameEvent) ev;
+                maxTickRate = newGameEvent.getMaxTickRate();
+                currentLayer = newGameEvent.getLayerName();
+                break;
             case LAYERINFO_UPDATED:
                 currentLayer = ((LayerInfoUpdatedEvent) ev).getCurrentLayer();
                 nextLayer = ((LayerInfoUpdatedEvent) ev).getNextLayer();
                 break;
 
         }
-    }
-
-    public static String getCurrentLayer() {
-        return currentLayer;
-    }
-
-    public static String getNextLayer() {
-        return nextLayer;
     }
 }

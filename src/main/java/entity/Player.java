@@ -1,5 +1,6 @@
 package entity;
 
+import java.util.Objects;
 import java.util.Optional;
 
 public class Player {
@@ -49,4 +50,16 @@ public class Player {
         return role;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Player player = (Player) o;
+        return getSteam64id().equals(player.getSteam64id());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getSteam64id());
+    }
 }
