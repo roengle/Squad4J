@@ -1,6 +1,7 @@
 package main;
 
 import a2s.Query;
+import connector.MySQLConnector;
 import server.A2SUpdater;
 import server.EventEmitter;
 import server.RconUpdater;
@@ -9,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rcon.Rcon;
 import server.SquadServer;
+import util.ConfigLoader;
 import util.logger.LoggerUtil;
 
 /**
@@ -21,9 +23,9 @@ import util.logger.LoggerUtil;
  *             | |
  *             |_|
  *
- * @author Robert Engle
- *
  * Main entry point for Squad4J. Initializes all services needed to run Squad4J.
+ *
+ * @author Robert Engle
  */
 
 public class Main {
@@ -38,7 +40,6 @@ public class Main {
         /* Initialize services, squad server instance, log tailer in order. */
         //Initialize RCON service
         Rcon.init();
-
         //Initailize query service
         Query.init();
         //Initialize service to update A2S and RCON information every 30 seconds.
@@ -48,6 +49,8 @@ public class Main {
         EventEmitter.init();
         //Initialize log tailer service
         TailerService.init();
+
+        MySQLConnector.init();
 
         //Initialize squad server
         SquadServer.init();

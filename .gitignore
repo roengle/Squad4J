@@ -1,4 +1,8 @@
+# Compiled Files
 /target/
+
+# IDEs
 /.idea/
-/target/*
-/.idea/*
+
+# Test files
+*.cfg

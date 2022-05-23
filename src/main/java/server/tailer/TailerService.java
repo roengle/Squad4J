@@ -24,6 +24,7 @@ public class TailerService {
         //Configure log file tailer
         TailerListener listener = new LogTailer();
         String filePath = ConfigLoader.get("$.server.logFilePath", String.class);
+        LOGGER.debug("File Path in Config: {}", filePath);
         File configFile = null;
         if(filePath != null){
             configFile = new File(filePath);
@@ -33,9 +34,10 @@ public class TailerService {
         }
         Tailer tailer = new Tailer(configFile,
                 listener,
-                500,
+                50,
                 true,
-                false);
+                false,
+                10000);
         LOGGER.info(String.format("Watching logfile %s", configFile.getAbsolutePath()));
         new Thread(tailer).start();
 

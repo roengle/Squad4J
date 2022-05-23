@@ -11,6 +11,15 @@ import util.ConfigLoader;
 
 import java.util.*;
 
+/**
+ * @author Robert Engle
+ *
+ * Implementation of <code>ChatCommands</code> from <a href="https://github.com/Team-Silver-Sphere/SquadJS#chatcommands">SquadJS</a>.
+ * ChatCommands is used to either warn or broadcast a message whenever a command is typed in a chat. Warnings will warn
+ * the player who typed the message, broadcasts will simply broadcast to the whole server.
+ *
+ * A prefix for commands can be configured. Each individual command can also be configured to ignore certain chat types.
+ */
 public class ChatCommands implements ChatMessageListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatCommands.class);
     private static final String PREFIX = ConfigLoader.get("$.plugins.ChatCommands.prefix", String.class);
@@ -63,7 +72,7 @@ public class ChatCommands implements ChatMessageListener {
                         broadcastCommands.put(commandName, command);
                         break;
                     default:
-                        LOGGER.error("\"type\" must be either \"warn\" or \"broadcast\"");
+                        LOGGER.error("\"type\" must be either \"warn\" or \"broadcast\". It currently is " + type);
                 }
             }
         }catch(JsonPathException pathExp){
@@ -86,12 +95,16 @@ public class ChatCommands implements ChatMessageListener {
                 List<String> ignoreChats = command.getIgnoreChats();
                 if(!ignoreChats.contains(chatType)){
                     String response = command.getResponse();
-                    String commandResponse = Rcon.command(String.format("AdminWarn %s %s", userSteamid, response));
-                    LOGGER.debug(commandResponse);
+                    Rcon.command(String.format("AdminWarn %s %s", userSteamid, response));
                 }
             }
             if(broadcastCommands.containsKey(message)){
-
+                Command command = broadcastCommands.get(message);
+                List<String> ignoreChats = command.getIgnoreChats();
+                if(!ignoreChats.contains(chatType)){
+                    String response = command.getResponse();
+                    Rcon.command(String.format("AdminBroadcast %s", response));
+                }
             }
         }
     }

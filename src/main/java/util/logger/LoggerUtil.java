@@ -4,6 +4,8 @@ import ch.qos.logback.classic.Level;
 import util.ConfigLoader;
 
 /**
+ * @author Robert Engle
+ *
  * Simple class to control logger as configured through configuration file.
  */
 public class LoggerUtil {

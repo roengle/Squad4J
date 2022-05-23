@@ -127,7 +127,7 @@ public class A2SInfoResponse extends Response{
     /**
      * Constructs a {@link A2SInfoResponse} given response data AFTER the challenge response has been sent.
      *
-     * When providing the raw data, make sure to <bold>INCLUDE</bold> the first four <code>FF</code> bytes.
+     * When providing the raw data, make sure to <b>INCLUDE</b> the first four <code>FF</code> bytes.
      *
      * For example, your packet data should start with: <code>FF FF FF FF 49 ...</code>
      *

@@ -135,14 +135,14 @@ public class EventEmitter {
 
         initMaps();
 
-        LOGGER.debug("Plugin Instances:");
+        LOGGER.trace("Plugin Instances:");
         pluginInstances.forEach((k, v) -> {
             LOGGER.trace("\t{} - {}", k ,v);
         });
 
-        LOGGER.debug("Event plugin instances:");
+        LOGGER.trace("Event plugin instances:");
         eventPluginInstances.forEach((k, list) -> {
-            LOGGER.debug("\t{}", k);
+            LOGGER.trace("\t{}", k);
             list.forEach(v -> {
                 LOGGER.trace("\t\t{}" ,v);
             });

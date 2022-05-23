@@ -23,7 +23,7 @@ public class PlayerListUpdatedEvent extends Event {
      *
      * @param date a {@link Date} corresponding to when this event occurred
      * @param type the corresponding {@link EventType} for this event
-     * @param playerList a {@link List<Player>} containing players in the server
+     * @param playerList a {@link List} containing players in the server
      */
     public PlayerListUpdatedEvent(Date date, EventType type, List<Player> playerList) {
         super(date, type);
@@ -31,9 +31,9 @@ public class PlayerListUpdatedEvent extends Event {
     }
 
     /**
-     * Gets a {@link List<Player>} representing the players in the server
+     * Gets a {@link List} representing the players in the server
      *
-     * @return a {@link List<Player>} of players in the server
+     * @return a {@link List} of players in the server
      */
     public List<Player> getPlayerList() {
         return playerList;

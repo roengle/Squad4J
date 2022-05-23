@@ -20,10 +20,20 @@ public class GlobalThreadPool {
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(
             CORE_POOL_SIZE, new NamedThreadFactory("Squad4J - Central ScheduledExecutorService"));
 
+    /**
+     * Gets the central {@link ExecutorService} for Squad4J.
+     *
+     * @return the central {@link ExecutorService} for Squad4J
+     */
     public static ExecutorService getExecutorService() {
         return executorService;
     }
 
+    /**
+     * Gets the central {@link ScheduledExecutorService} for Squad4J.
+     *
+     * @return the central {@link ScheduledExecutorService} for Squad4J
+     */
     public static ScheduledExecutorService getScheduler() {
         return scheduler;
     }

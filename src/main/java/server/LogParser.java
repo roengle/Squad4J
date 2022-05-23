@@ -52,10 +52,14 @@ public class LogParser {
     }
 
     public static void parseLine(String line){
+        LOGGER.trace("Received {}", line);
+
         AtomicReference<Event> event = new AtomicReference<>(null);
         SimpleDateFormat formatter = new SimpleDateFormat("yyyy.MM.dd-HH.mm.ss:SSS");
 
+
         logPatterns.forEach((pattern, type) -> {
+
             Matcher matcher = pattern.matcher(line);
             if(matcher.find()){
                 try{
@@ -64,7 +68,7 @@ public class LogParser {
                             event.set(new AdminBroadcastEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4)
                             ));
@@ -73,20 +77,20 @@ public class LogParser {
                             event.set(new DeployableDamagedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
-                                    Integer.parseInt(matcher.group(4)),
+                                    Double.parseDouble(matcher.group(4)),
                                     matcher.group(5),
                                     matcher.group(6),
                                     matcher.group(7),
-                                    Integer.parseInt(matcher.group(8))
+                                    Double.parseDouble(matcher.group(8))
                             ));
                             break;
                         case NEW_GAME:
                             event.set(new NewGameEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4),
                                     matcher.group(5),
@@ -97,17 +101,17 @@ public class LogParser {
                             event.set(new PlayerConnectedEvent(
                                formatter.parse(matcher.group(1)),
                                type,
-                               Integer.parseInt(matcher.group(3)),
-                               matcher.group(4)
+                               Integer.parseInt(matcher.group(2).strip()),
+                               matcher.group(3)
                             ));
                             break;
                         case PLAYER_DAMAGED:
                             event.set(new PlayerDamagedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
-                                    Integer.parseInt(matcher.group(4)),
+                                    Double.parseDouble(matcher.group(4)),
                                     matcher.group(5),
                                     matcher.group(6),
                                     matcher.group(7)
@@ -117,9 +121,9 @@ public class LogParser {
                             event.set(new PlayerDiedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
-                                    Integer.parseInt(matcher.group(4)),
+                                    Double.parseDouble(matcher.group(4)),
                                     matcher.group(5),
                                     matcher.group(6)
                             ));
@@ -128,7 +132,7 @@ public class LogParser {
                             event.set(new PlayerDisconnectedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3)
                             ));
                             break;
@@ -136,7 +140,7 @@ public class LogParser {
                             event.set(new PlayerPossessEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4)
                             ));
@@ -145,7 +149,7 @@ public class LogParser {
                             event.set(new PlayerRevivedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4)
                             ));
@@ -154,7 +158,7 @@ public class LogParser {
                             event.set(new PlayerUnPossessEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3)
                             ));
                             break;
@@ -162,9 +166,9 @@ public class LogParser {
                             event.set(new PlayerWoundedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
-                                    Integer.parseInt(matcher.group(4)),
+                                    Double.parseDouble(matcher.group(4)),
                                     matcher.group(5),
                                     matcher.group(6)
                             ));
@@ -173,7 +177,7 @@ public class LogParser {
                             event.set(new RoundWinnerEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4)
                             ));
@@ -182,7 +186,7 @@ public class LogParser {
                             event.set(new ServerTickRateEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     Double.parseDouble(matcher.group(3))
                             ));
                             break;
@@ -190,7 +194,7 @@ public class LogParser {
                             event.set(new SquadCreatedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4),
                                     Integer.parseInt(matcher.group(5)),
@@ -202,7 +206,7 @@ public class LogParser {
                             event.set(new SteamidConnectedEvent(
                                     formatter.parse(matcher.group(1)),
                                     type,
-                                    Integer.parseInt(matcher.group(2)),
+                                    Integer.parseInt(matcher.group(2).strip()),
                                     matcher.group(3),
                                     matcher.group(4)
                             ));

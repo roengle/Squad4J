@@ -14,7 +14,7 @@ import java.util.Date;
  */
 public class PlayerDamagedEvent extends Event {
     private final String victimName;
-    private final Integer damage;
+    private final Double damage;
     private final String attackerName;
     private final String weapon;
     private final String weaponEntityId;
@@ -32,7 +32,7 @@ public class PlayerDamagedEvent extends Event {
      * @param weaponEntityId the entity id of the weapon used by {@code attackerName}
      */
     public PlayerDamagedEvent(Date date, EventType type, Integer chainID, String victimName,
-                              Integer damage, String attackerName, String weapon, String weaponEntityId){
+                              Double damage, String attackerName, String weapon, String weaponEntityId){
         super(date, type, chainID);
         this.victimName = victimName;
         this.damage = damage;
@@ -55,7 +55,7 @@ public class PlayerDamagedEvent extends Event {
      *
      * @return the amount of damage dealt
      */
-    public Integer getDamage() {
+    public Double getDamage() {
         return damage;
     }
 

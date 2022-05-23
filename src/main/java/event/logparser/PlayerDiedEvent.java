@@ -16,7 +16,7 @@ import java.util.Date;
  */
 public class PlayerDiedEvent extends Event {
     private final String victimName;
-    private final Integer damage;
+    private final Double damage;
     private final String attackerPlayerController;
     private final String weapon;
 
@@ -32,7 +32,7 @@ public class PlayerDiedEvent extends Event {
      * @param weapon the weapon used to kill the victim
      */
     public PlayerDiedEvent(Date date, EventType type, Integer chainID, String victimName,
-                           Integer damage, String playerController, String weapon){
+                           Double damage, String playerController, String weapon){
         super(date, type, chainID);
         this.victimName = victimName;
         this.damage = damage;
@@ -54,7 +54,7 @@ public class PlayerDiedEvent extends Event {
      *
      * @return the damage used to kill the victim
      */
-    public Integer getDamage() {
+    public Double getDamage() {
         return damage;
     }
 

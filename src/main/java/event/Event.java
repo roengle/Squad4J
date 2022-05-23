@@ -8,6 +8,7 @@ import java.util.StringJoiner;
 /**
  * @author Robert Engle
  *
+ *
  * An abstract class defining an event that can occur.
  *
  * Events that occur from the log parser have a date/time, type, and chain ID. Events that occur from anywhere else
@@ -65,7 +66,7 @@ public abstract class Event {
      * Gets an optional which represents the state of the chain ID. If not null, the optional will contain the chain ID
      * value. If null, then the opitonal will be empty.
      *
-     * @return an {@link Optional<Integer>} of the chain ID for this event
+     * @return an {@link Optional} for the chain ID for this event
      */
     public Optional<Integer> getChainID() {
         return Optional.ofNullable(this.chainID);

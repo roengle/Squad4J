@@ -1,44 +1,58 @@
 package util;
 
 import com.jayway.jsonpath.Configuration;
+import com.jayway.jsonpath.InvalidJsonException;
 import com.jayway.jsonpath.JsonPath;
-import com.jayway.jsonpath.JsonPathException;
-import com.jayway.jsonpath.PathNotFoundException;
-import org.json.JSONObject;
-import org.json.JSONTokener;
+import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.BufferedReader;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 /**
- * @author Robert Engle
- *
  * A utility class providing methods to access fields from the config.json configuration file. Provides methods for
  * using JSON paths to access these fields.
  *
  * See <a href="https://github.com/json-path/JsonPath#operators">this page</a> for more information on JSON paths.
+ *
+ * @author Robert Engle
  */
 public class ConfigLoader {
     private static final Logger LOGGER = LoggerFactory.getLogger(ConfigLoader.class);
-    private static final Object document;
+    private static Object document;
 
     static{
+
         String json = "{}";
-        try{
-            InputStream in = Thread.currentThread().getContextClassLoader().getResourceAsStream("config.json");
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
-            json = new JSONObject(new JSONTokener(br)).toString();
-            br.close();
-            in.close();
-        }catch (Exception e){
-            LOGGER.error("Error reading configuration file.");
+        File file = new File("config.json");
+        if(!file.exists()){
+            file = new File("src/main/resources/config.json");
+            if(!file.exists()){
+                LOGGER.error("config.json does not exist. Exiting.");
+                System.err.println("config.json does not exist. Exiting.");
+                System.exit(1);
+            }
+        }
+        try {
+            InputStream is = new FileInputStream("config.json");
+            json = IOUtils.toString(is, StandardCharsets.UTF_8);
+        } catch (IOException e) {
             LOGGER.error(e.getMessage());
+        }
+
+        try{
+            document = Configuration.defaultConfiguration().jsonProvider().parse(json);
+        } catch (InvalidJsonException e) {
+            LOGGER.error("config.json is not valid JSON.", e);
+            LOGGER.error("Exiting");
             System.exit(1);
         }
-        document = Configuration.defaultConfiguration().jsonProvider().parse(json);
+
+    }
+
+    public static void init(){
+
     }
 
     private ConfigLoader(){
@@ -59,7 +73,7 @@ public class ConfigLoader {
     }
 
     /**
-     * Gets the value of the path from the configuration file, casting it to the given Class<T>
+     * Gets the value of the path from the configuration file, casting it to the given class T
      *
      * See <a href="https://github.com/json-path/JsonPath#operators">this page</a> for more information on JSON paths.
      *

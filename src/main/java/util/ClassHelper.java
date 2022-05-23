@@ -55,7 +55,7 @@ public class ClassHelper {
      * Get a stream of all classes that exist within a designated package, provided as a {@link String}.
      *
      * @param packageName the name of the package
-     * @return a {@link Stream<Class>} representing the classes in the package
+     * @return a {@link Stream} representing the classes in the package
      * @throws IOException
      */
     public static Stream<Class<?>> getClassesInPackage(String packageName) throws IOException {

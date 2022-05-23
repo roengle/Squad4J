@@ -25,19 +25,21 @@ public class A2SUpdater {
         if(initialized)
             throw new IllegalStateException(A2SUpdater.class.getSimpleName() + " has already been initialized.");
 
-        GlobalThreadPool.getScheduler().scheduleAtFixedRate(() -> {
-            LOGGER.debug("Retrieving A2S info");
-            A2SCombinedResponse response = Query.queryBoth();
-
-            Event event = new A2SUpdatedEvent(new Date(), EventType.A2S_UPDATED, response);
-
-            LOGGER.debug("A2S info updated");
-
-            EventEmitter.emit(event);
-        }, 5, 30, TimeUnit.SECONDS);
+        GlobalThreadPool.getScheduler().scheduleAtFixedRate(A2SUpdater::updateA2S, 5, 30, TimeUnit.SECONDS);
 
         initialized = true;
 
         LOGGER.info("Query service initialized.");
+    }
+
+    protected static void updateA2S(){
+        LOGGER.info("Retrieving A2S info");
+        A2SCombinedResponse response = Query.queryBoth();
+
+        Event event = new A2SUpdatedEvent(new Date(), EventType.A2S_UPDATED, response);
+
+        LOGGER.info("A2S info updated");
+
+        EventEmitter.emit(event);
     }
 }

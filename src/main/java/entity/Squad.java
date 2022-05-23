@@ -1,5 +1,8 @@
 package entity;
 
+/**
+ * @author Robert Engle
+ */
 public class Squad {
     private final Integer teamId;
     private final Integer id;

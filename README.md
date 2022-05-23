@@ -147,7 +147,7 @@ Squad4J is configured via a JSON file called `config.json`. In a development env
   </li><br>
   <li>
     <h4>colors</h4>
-    <p>JSON Object which defines the color scheme used for various logging levels. Has configurations for <code>trace</code>, <code>debug</code>, <code>debug</code>, <code>info</code>, 
+    <p>JSON Object which defines the color scheme used for various logging levels. Has configurations for <code>trace</code>, <code>debug</code>, <code>info</code>, 
       <code>warn</code>, and <code>error</code> levels.</p><br>
     <p>Each level configuration has the following options:</p>
     <ul>
@@ -238,7 +238,7 @@ The following plugins are built into Squad4J. See below for how to configure the
 
 ## Credits
 
-- [SquadJS and Contributors](https://github.com/Thomas-Smyth/SquadJS) - The original Squad log parsing and server-side 
+- [SquadJS and Contributors](https://github.com/Team-Silver-Sphere/SquadJS) - The original Squad log parsing and server-side 
 scripting framework. Paved the path for a lot of techniques that Squad4J uses to collect server
 info and methods to interact with servers and players.
 

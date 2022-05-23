@@ -3,6 +3,10 @@ package entity;
 import java.util.Objects;
 import java.util.Optional;
 
+/**
+ * @author Robert Engle
+ *
+ */
 public class Player {
     private final Integer id;
     private final String steam64id;

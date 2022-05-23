@@ -115,7 +115,7 @@ public class RconImpl {
     }
 
     /**
-     * Function that takes in a {@link Consumer<RconPacket>} to consume every time a RCON packet is received. The consumer
+     * Function that takes in a {@link Consumer} to consume every time a RCON packet is received. The consumer
      * takes in the supplied {@link RconPacket}
      *
      * @param func the {@link Consumer} to be consumed for each {@link RconPacket} retrieved.

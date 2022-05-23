@@ -23,7 +23,7 @@ public class SquadListUpdatedEvent extends Event {
      *
      * @param date a {@link Date} corresponding to when this event occurred
      * @param type the corresponding {@link EventType} for this event
-     * @param squadList a {@link List<Squad>} representing the squads
+     * @param squadList a {@link List} representing the squads
      */
     public SquadListUpdatedEvent(Date date, EventType type, List<Squad> squadList) {
         super(date, type);
@@ -31,9 +31,9 @@ public class SquadListUpdatedEvent extends Event {
     }
 
     /**
-     * Gets a {@link List<Squad>} representing the squads
+     * Gets a {@link List} representing the squads
      *
-     * @return a {@link List<Squad>} representing the squads
+     * @return a {@link List} representing the squads
      */
     public List<Squad> getSquadList() {
         return squadList;

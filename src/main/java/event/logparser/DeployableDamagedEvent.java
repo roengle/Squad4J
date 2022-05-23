@@ -14,11 +14,11 @@ import java.util.Date;
  */
 public class DeployableDamagedEvent extends Event {
     private final String deployable;
-    private final Integer damage;
+    private final Double damage;
     private final String weapon;
     private final String playerSuffix;
     private final String damageType;
-    private final Integer healthRemaining;
+    private final Double healthRemaining;
 
     /**
      * Constructs a {@link DeployableDamagedEvent}.
@@ -33,8 +33,8 @@ public class DeployableDamagedEvent extends Event {
      * @param damageType the damage type done to the deployable
      * @param healthRemaining the amount of health remaining on the deployable
      */
-    public DeployableDamagedEvent(Date date, EventType type, Integer chainID, String deployable, Integer damage, String weapon,
-                                  String playerSuffix, String damageType, Integer healthRemaining){
+    public DeployableDamagedEvent(Date date, EventType type, Integer chainID, String deployable, Double damage, String weapon,
+                                  String playerSuffix, String damageType, Double healthRemaining){
         super(date, type, chainID);
         this.deployable = deployable;
         this.damage = damage;
@@ -58,7 +58,7 @@ public class DeployableDamagedEvent extends Event {
      *
      * @return the amount of damage done to the deployable
      */
-    public Integer getDamage() {
+    public Double getDamage() {
         return damage;
     }
 
@@ -94,7 +94,7 @@ public class DeployableDamagedEvent extends Event {
      *
      * @return the health reamining on the deployable
      */
-    public Integer getHealthRemaining() {
+    public Double getHealthRemaining() {
         return healthRemaining;
     }
 }

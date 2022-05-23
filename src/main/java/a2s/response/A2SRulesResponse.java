@@ -21,7 +21,12 @@ public class A2SRulesResponse extends Response{
     private final Byte numRules;
     private final Map<String, String> ruleMap = new LinkedHashMap<>();
 
-    public A2SRulesResponse(byte[] rawData) {
+    /**
+     * Constructs a {@link A2SInfoResponse} from raw response data
+     *
+     * @param rawData a byte array of the raw data of the response
+     */
+    private A2SRulesResponse(byte[] rawData) {
         super(rawData);
 
         ByteBuffer buffer = ByteBuffer.wrap(rawData);
@@ -42,14 +47,30 @@ public class A2SRulesResponse extends Response{
         }
     }
 
+    /**
+     * Static method to create a {@link A2SRulesResponse} from raw response data
+     *
+     * @param receivedData a byte array of the raw response data
+     * @return a {@link A2SRulesResponse} from the raw data
+     */
     public static A2SRulesResponse from(byte[] receivedData) {
         return new A2SRulesResponse(receivedData);
     }
 
+    /**
+     * Gets the number of rules present in the A2S_RULES response
+     * @return the number of rules present in the A2S_RULES response
+     */
     public Byte getNumRules() {
         return numRules;
     }
 
+    /**
+     * Gets the value of a specified rule.
+     *
+     * @param rule the rule to get the value for
+     * @return the value for the rule
+     */
     public String getRuleValue(String rule){
         return ruleMap.get(rule);
     }
@@ -57,7 +78,7 @@ public class A2SRulesResponse extends Response{
     /**
      * Gets entry set for the rules. Is useful for getting all rules.
      *
-     * @return a {@link Set<Map.Entry<String, String>>} of the rules returned by A2S_RULES query
+     * @return a {@link Set} of the rule entries returned by A2S_RULES query
      */
     public Set<Map.Entry<String, String>> getRuleEntrySet(){
         return ruleMap.entrySet();
