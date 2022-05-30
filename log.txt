@@ -1,1 +1,16 @@
 [2022.04.12-16.45.55:459][294]LogSquadTrace: [DedicatedServer]TraceAndMessageClient(): BP_UH60_C_2143860112: 2.10 damage taken by causer BP_UH60_C_2143860112 instigator Fishnut363 health remaining 35.90
+aa
+aa
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.32.40:773][ 91]LogSquadTrace: [DedicatedServer]OnUnPossess(): PC=H. Williams
+[2022.04.27-03.47.39:982][798]LogSquadTrace: [DedicatedServer]Die(): Player:Snipes467 KillingDamage=-300.000000 from BP_PlayerController_C_2143746852 caused by BP_Soldier_MIL_Rifleman1_C_2143545830
+[2022.04.27-03.47.39:982][798]LogSquadTrace: [DedicatedServer]Die(): Player:Snipes467 KillingDamage=-300.000000 from BP_PlayerController_C_2143746852 caused by BP_Soldier_MIL_Rifleman1_C_2143545830
+[2022.04.27-03.47.39:635][789]LogSquad: Player:iLoveJesus ActualDamage=5.843523 from iLoveJesus caused by BP_Soldier_MIL_SquadLeader_C_2143555460
+[2022.04.27-03.47.39:635][789]LogSquad: Player:iLoveJesus ActualDamage=5.843523 from iLoveJesus caused by BP_Soldier_MIL_SquadLeader_C_2143555460
+[2022.04.27-03.57.02:693][636]LogSquadTrace: [DedicatedServer]Wound(): Player:[EGC] H. Williams KillingDamage=95.625000 from BP_PlayerController_C_2143589038 caused by BP_50Cal_M1151_Woodland_C_2143561641

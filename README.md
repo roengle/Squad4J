@@ -16,7 +16,8 @@
 
 ## About
 
-Squad4J is **currently in development** and is **actively seeking contributors**! To contribute
+Squad4J is **currently in development** and is **actively seeking contributors**! To contribute, join the [Squad RCON](https://discord.gg/DjrpPuw)
+discord and post in one of the Squad4J channels.
 
 Squad4J is a plugin framework written in Java designed to run alongside Squad servers. It draws inspiration 
 from [SquadJS](https://github.com/Team-Silver-Sphere/SquadJS), which was the first framework to successfully

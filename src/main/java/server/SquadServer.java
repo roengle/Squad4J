@@ -71,7 +71,7 @@ public class SquadServer {
 
         id = ConfigLoader.get("server.id", Integer.class);
         String sourceRef = null;
-        //TODO: Improve admin reading to take union all permissions for UNIQUE ADMINS    across all files. Currently, this logic actually sucks
+        //TODO: Improve admin reading to take union all permissions for UNIQUE ADMINS across all files. Currently, this logic actually sucks
         try{
             Integer numAdminLists = ConfigLoader.get("server.adminLists.length()", Integer.class);
             for(int i = 0; i < numAdminLists; i++){
