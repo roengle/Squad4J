@@ -18,7 +18,7 @@ public class ClassHelper {
      * superclasses.
      * If the given class is an interface, it will be included in the result, otherwise not.
      *
-     * https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/ClassHelper.java
+     * <a href=https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/ClassHelper.java>Javacord ClassHelper class</a>
      *
      * @param clazz The class to get the interfaces for.
      * @return The stream of interfaces of the given class.
@@ -37,7 +37,7 @@ public class ClassHelper {
      * If the given class is an interface, the result will be empty, except if {@code includeArgument} is {@code true}.
      * Whether the given class will be included in the result is controlled via the parameter {@code includeArgument}.
      *
-     * https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/ClassHelper.java
+     * <a href=https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/ClassHelper.java>Javacord ClassHelper class</a>
      *
      * @param clazz The class to get the superclasses for.
      * @param includeArgument Whether to include the given class in the result.

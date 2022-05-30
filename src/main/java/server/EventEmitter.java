@@ -14,6 +14,11 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.*;
 
+/**
+ *
+ *
+ * @author Robert Engle
+ */
 public class EventEmitter {
     private static final Logger LOGGER = LoggerFactory.getLogger(EventEmitter.class);
 
@@ -84,10 +89,12 @@ public class EventEmitter {
                     boolean enabled = (boolean) pluginConfiguration.get("enabled");
                     if(!enabled){
                         LOGGER.warn("{} not enabled in config.json, skipping event binding.", pluginClass.getSimpleName());
+                        //Return here skips this iteration of the forEach loop
                         return;
                     }
                 } catch(PathNotFoundException exp){
                     LOGGER.warn("{} does not have a configuration in config.json, skipping event binding.", pluginClass.getSimpleName());
+                    //Return here skips this iteration of the forEach loop
                     return;
                 }
 
