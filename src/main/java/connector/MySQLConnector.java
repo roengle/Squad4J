@@ -19,8 +19,6 @@ public class MySQLConnector extends Connector{
     private static Connection conn;
     private static Statement statement;
 
-    private static String schema;
-
     private static final SimpleDateFormat dateTimeFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
     private static final Integer serverID = ConfigLoader.get("server.id", Integer.class);
 
@@ -33,7 +31,7 @@ public class MySQLConnector extends Connector{
         Integer port = ConfigLoader.get("connectors.mysql.port", Integer.class);
         String user = ConfigLoader.get("connectors.mysql.username", String.class);
         String password = ConfigLoader.get("connectors.mysql.password", String.class);
-        schema = ConfigLoader.get("connectors.mysql.database", String.class);
+        String schema = ConfigLoader.get("connectors.mysql.database", String.class);
 
         String baseConnectionString = String.format("jdbc:mysql://%s:%d/%s?timezone=UTC&autoReconnect=true", ip, port, schema);
 
@@ -169,7 +167,7 @@ public class MySQLConnector extends Connector{
         LOGGER.debug("Creating DBLog_Deaths");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS DBLog_Deaths(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "`time` DATETIME NOT NULL," +
+                "`time` DATETƒIME NOT NULL," +
                 "woundTime DATE," +
                 "victimName VARCHAR(255)," +
                 "victimTeamID INT," +
@@ -245,7 +243,7 @@ public class MySQLConnector extends Connector{
 
     public static Integer getMatch(){
         try {
-            String query = String.format("SELECT `id` FROM DBLog_Matches WHERE `id` = %s AND `endTime` IS NULL ORDER BY time DESC LIMIT 1;", serverID);
+            String query = String.format("SELECT `id` FROM DBLog_Matches WHERE `id` = %s AND `endTime` IS NULL ORDER BY `time` DESC LIMIT 1;", serverID);
             ResultSet rs = statement.executeQuery(query);
             rs.first();
             return rs.getInt("id");

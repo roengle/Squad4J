@@ -9,12 +9,14 @@ Typically, plugins you write will fall into one of these categories:
 - Plugins that both "react" to events and run code periodically.
 
 ## Important Information
-The following are important for **all** plugins to function properly for Squad4J. Read the following carefull.
+The following are important for **all** plugins to function properly for Squad4J. Read the following carefully.
 
 - Due to how Squad4J does event binding using the Java reflections framework, all plugin classes **MUST** be inside the `plugins` package. 
 - Plugin classes must have the `public` access modifier. For example `public class MyPlugin`.
 - Plugins classes must have a **public**, **no-argument** constructor (default constructor works fine here). This is due to how Squad4J utilizes the Java reflections framework to create an instance of your plugin class.
+  - Additionally, you can use the `@NoArgsConstructor` annotation above the class declaration.
 - Each plugin **must** have a configuration in the `plugins` configuration in *config.json* that matches **the class name**. See below for more information on this.
+  - If a plugin does not have a configuration, it won't be bounded to events.
 
 ## Reacting to Events
 To have your plugin react to events, simply implement one or more listener interfaces into your class. For example:
