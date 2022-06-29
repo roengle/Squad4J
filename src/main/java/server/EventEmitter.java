@@ -163,7 +163,7 @@ public class EventEmitter {
      *
      * @param event the event to emit.
      */
-    protected static void emit(Event event) {
+    public static void emit(Event event) {
         LOGGER.trace("New event emitted: {}", event);
         SquadServer.receiveEvent(event);
 
@@ -183,7 +183,7 @@ public class EventEmitter {
                 LOGGER.error("Method with name {} not found.", methodName);
                 LOGGER.error(e.getMessage());
             } catch (InvocationTargetException e) {
-                LOGGER.error("{} threw an exception.", methodName);
+                LOGGER.error("{} threw an exception running on plugin {}.", methodName, plugin.getClass().getSimpleName());
                 LOGGER.error(e.getMessage());
             } catch (IllegalAccessException e) {
                 LOGGER.error("{} is inaccessible. Ensure that the method is public.", methodName);

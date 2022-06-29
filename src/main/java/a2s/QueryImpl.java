@@ -15,6 +15,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
 import java.util.function.Supplier;
 
 /**
@@ -78,9 +79,14 @@ public class QueryImpl {
             }
             send(this.socket, address, this.port, buffer.array());
 
-            receivedData = receiveAsync(this.socket).getData();
+            DatagramPacket receivedPacket = receiveAsync(this.socket);
+            if(receivedPacket != null){
+                receivedData = receivedPacket.getData();
+                return A2SInfoResponse.from(receivedData);
+            }else{
+                return null;
+            }
 
-            return A2SInfoResponse.from(receivedData);
         }else{
             return A2SInfoResponse.from(receivedData);
         }
@@ -103,6 +109,9 @@ public class QueryImpl {
         send(socket, address, port, buffer.array());
 
         DatagramPacket receivingPacket = receiveAsync(this.socket);
+        if(receivingPacket == null){
+            return null;
+        }
         byte[] receivedData = receivingPacket.getData();
         if(receivedData[4] == (byte)0x41){
             buffer = ByteBuffer.allocate(buffer.capacity());
@@ -129,25 +138,23 @@ public class QueryImpl {
         socket.send(sendPacket);
     }
 
-    private static DatagramPacket receiveAsync(DatagramSocket socket) throws IOException {
+    private static DatagramPacket receiveAsync(DatagramSocket socket){
         CompletableFuture<DatagramPacket> future = getFuture(socket);
 
-        long start = System.currentTimeMillis();
-        boolean alreadyRetried = false;
-        while(!future.isDone()){
-            if(System.currentTimeMillis() > start + TimeUnit.SECONDS.toMillis(5)){
-                //Timeout
-                if(!alreadyRetried){
-                    future = getFuture(socket);
-                }else{
-                    throw new IOException("Cannot receive socket for query response.");
-                }
-            }
-        }
         try {
-            return future.get();
+            return future.get(2, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException e) {
             LOGGER.error(e.getMessage());
+        } catch(TimeoutException timeout){
+            LOGGER.warn("Query timed out after 2 seconds, retrying.", timeout);
+            try{
+                CompletableFuture<DatagramPacket> newFuture = getFuture(socket);
+                return newFuture.get(2, TimeUnit.SECONDS);
+            } catch (ExecutionException | InterruptedException e) {
+                LOGGER.error(e.getMessage());
+            } catch (TimeoutException retryTimeout) {
+                LOGGER.error("Query timed out again after retrying.", retryTimeout);
+            }
         }
         return null;
     }

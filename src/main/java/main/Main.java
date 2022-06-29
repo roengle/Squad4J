@@ -1,7 +1,14 @@
 package main;
 
 import a2s.Query;
+import a2s.response.A2SCombinedResponse;
 import connector.MySQLConnector;
+import event.Event;
+import event.EventType;
+import event.a2s.A2SUpdatedEvent;
+import event.logparser.NewGameEvent;
+import event.logparser.PlayerDiedEvent;
+import event.logparser.ServerTickRateEvent;
 import server.A2SUpdater;
 import server.EventEmitter;
 import server.RconUpdater;
@@ -12,6 +19,8 @@ import rcon.Rcon;
 import server.SquadServer;
 import util.ConfigLoader;
 import util.logger.LoggerUtil;
+
+import java.util.Date;
 
 /**
  *    _____                       _ _  _       _
@@ -42,18 +51,24 @@ public class Main {
         Rcon.init();
         //Initailize query service
         Query.init();
-        //Initialize service to update A2S and RCON information every 30 seconds.
-        A2SUpdater.init();
-        RconUpdater.init();
-        //Intialize event emitter service
-        EventEmitter.init();
+
         //Initialize log tailer service
         TailerService.init();
 
-        MySQLConnector.init();
-
         //Initialize squad server
         SquadServer.init();
+
+        MySQLConnector.init();
+
+        //Intialize event emitter service
+        EventEmitter.init();
+
+        //TODO: Remove me after debugging
+        Event testEvent = new ServerTickRateEvent(new Date(), EventType.SERVER_TICK_RATE, 0, 35.5);
+
+        LOGGER.debug("Emitting {}", testEvent);
+
+        EventEmitter.emit(testEvent);
     }
 
     private static void printLogo() {

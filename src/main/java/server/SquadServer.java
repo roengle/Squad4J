@@ -14,6 +14,7 @@ import event.EventType;
 import event.a2s.A2SUpdatedEvent;
 import event.logparser.*;
 import event.rcon.*;
+import lombok.Getter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.AdminListReader;
@@ -30,11 +31,14 @@ public class SquadServer {
 
     private static boolean initialized = false;
 
+    @Getter
     private static Integer id;
 
     private static final BiMap<String, String> nameSteamIds = HashBiMap.create();
 
+    @Getter
     private static Collection<Player> players;
+    @Getter
     private static Collection<Squad> squads;
 
     private static List<String> adminSteamIds = new ArrayList<>();
@@ -42,23 +46,40 @@ public class SquadServer {
     private static Collection<Player> admins;
     private static Collection<Player> adminsInAdminCam;
 
+    @Getter
     private static String currentLayer;
+    @Getter
+    private static String currentMap;
+    @Getter
+    private static String nextMap;
+    @Getter
     private static String nextLayer;
 
+    @Getter
     private static String serverName;
+    @Getter
     private static Integer maxPlayers;
+    @Getter
     private static Integer publicSlots;
+    @Getter
     private static Integer reserveSlots;
 
+    @Getter
     private static Integer playerCount;
+    @Getter
     private static Integer publicQueue;
+    @Getter
     private static Integer reserveQueue;
 
+    @Getter
     private static String gameVersion;
+    @Getter
     private static Double matchTimeout;
 
+    @Getter
     private static Integer maxTickRate;
 
+    @Getter
     private static String mostRecentWinner;
 
     private SquadServer(){
@@ -106,6 +127,14 @@ public class SquadServer {
 
                 LOGGER.trace("Read {} admins from {}", adminSteamIds.size(), source);
             }
+
+            A2SUpdater.updateA2S();
+            RconUpdater.updateRcon();
+
+            //Initialize service to update A2S and RCON information every 30 seconds.
+            A2SUpdater.init();
+            RconUpdater.init();
+
         }catch (JsonPathException jsexp){
             LOGGER.error("Error reading admin list configuration.", jsexp);
         }
@@ -123,6 +152,7 @@ public class SquadServer {
     protected static void receiveEvent(final Event ev){
         EventType type = ev.getType();
 
+        //TODO: Add receiving of tick rate event to update current tick rate field
         switch(type){
             //A2S
             case A2S_UPDATED:
@@ -186,7 +216,9 @@ public class SquadServer {
             //Rcon
             case LAYERINFO_UPDATED:
                 LOGGER.trace("Updating SquadServer for LAYERINFO_UPDATED");
+                currentMap = ((LayerInfoUpdatedEvent) ev).getCurrentMap();
                 currentLayer = ((LayerInfoUpdatedEvent) ev).getCurrentLayer();
+                nextMap = ((LayerInfoUpdatedEvent) ev).getNextMap();
                 nextLayer = ((LayerInfoUpdatedEvent) ev).getNextLayer();
                 LOGGER.trace("Done updating SquadServer for LAYERINFO_UPDATED");
                 break;
@@ -237,10 +269,6 @@ public class SquadServer {
         return players.stream().filter(player -> player.getSteam64id().equals(steam64id)).findFirst();
     }
 
-    public static Integer getId() {
-        return id;
-    }
-
     public static Collection<Player> getPlayers() {
         return Collections.unmodifiableCollection(players);
     }
@@ -255,57 +283,5 @@ public class SquadServer {
 
     public static Collection<Player> getAdminsInAdminCam() {
         return Collections.unmodifiableCollection(adminsInAdminCam);
-    }
-
-    public static String getCurrentLayer() {
-        return currentLayer;
-    }
-
-    public static String getNextLayer() {
-        return nextLayer;
-    }
-
-    public static String getServerName() {
-        return serverName;
-    }
-
-    public static Integer getMaxPlayers() {
-        return maxPlayers;
-    }
-
-    public static Integer getPublicSlots() {
-        return publicSlots;
-    }
-
-    public static Integer getReserveSlots() {
-        return reserveSlots;
-    }
-
-    public static Integer getPlayerCount() {
-        return playerCount;
-    }
-
-    public static Integer getPublicQueue() {
-        return publicQueue;
-    }
-
-    public static Integer getReserveQueue() {
-        return reserveQueue;
-    }
-
-    public static String getGameVersion() {
-        return gameVersion;
-    }
-
-    public static Double getMatchTimeout() {
-        return matchTimeout;
-    }
-
-    public static Integer getMaxTickRate() {
-        return maxTickRate;
-    }
-
-    public static String getMostRecentWinner() {
-        return mostRecentWinner;
     }
 }

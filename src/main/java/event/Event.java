@@ -26,7 +26,7 @@ public abstract class Event {
      * @param type the type of event, outlined by {@link EventType}
      * @param chainID the chain ID of the event
      */
-    protected Event(Date date, EventType type, Integer chainID){
+    public Event(Date date, EventType type, Integer chainID){
         this.time = date;
         this.type = type;
         this.chainID = chainID;

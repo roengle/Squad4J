@@ -27,8 +27,8 @@ public class RconUpdater {
 
     private static final Pattern playerPattern = Pattern.compile("ID: ([0-9]+) \\| SteamID: ([0-9]+) \\| Name: (.+) \\| Team ID: (1|2) \\| Squad ID: ([0-9]+|N\\/A) \\| Is Leader: (True|False) \\| Role: (.+)");
     private static final Pattern squadPattern = Pattern.compile("ID: ([0-9]+) \\| Name: (.+) \\| Size: ([0-9]+) \\| Locked: (True|False) \\| Creator Name: (.+) \\| Creator Steam ID: ([0-9]{17})");
-    private static final Pattern currentLayerPattern = Pattern.compile("Current level is (?:.+), layer is (.+)");
-    private static final Pattern nextLayerPattern = Pattern.compile("Next level is (?:.+), layer is (.+)");
+    private static final Pattern currentLayerPattern = Pattern.compile("Current level is (.+), layer is (.+)");
+    private static final Pattern nextLayerPattern = Pattern.compile("Next level is (.+), layer is (.+)");
 
     private RconUpdater(){
         throw new IllegalStateException("This class cannot be instantiated.");
@@ -39,12 +39,16 @@ public class RconUpdater {
             throw new IllegalStateException(RconUpdater.class.getSimpleName() + " has already been initialized.");
 
         GlobalThreadPool.getScheduler().scheduleAtFixedRate(() -> {
-            updatePlayerList();
-            updateSquadList();
-            updateLayerInfo();
-        }, 5, 30, TimeUnit.SECONDS);
+            updateRcon();
+        }, 1, 30, TimeUnit.SECONDS);
 
         initialized = true;
+    }
+
+    public static void updateRcon() {
+        updatePlayerList();
+        updateSquadList();
+        updateLayerInfo();
     }
 
     protected static void updatePlayerList(){
@@ -113,12 +117,15 @@ public class RconUpdater {
         LOGGER.info("Retrieving layer information");
         String currentLayer = "";
         String nextLayer = "";
+        String currentMap = "";
+        String nextMap = "";
 
         LOGGER.trace("Getting current map");
         String response = Rcon.command("ShowCurrentMap");
         Matcher matcher = currentLayerPattern.matcher(response);
         if(matcher.find()){
-            currentLayer = matcher.group(1);
+            currentMap = matcher.group(1);
+            currentLayer = matcher.group(2);
             LOGGER.trace("Current layer is {}", currentLayer);
         }
 
@@ -126,13 +133,16 @@ public class RconUpdater {
         response = Rcon.command("ShowNextMap");
         matcher = nextLayerPattern.matcher(response);
         if(matcher.find()){
-            nextLayer = matcher.group(1);
+            nextMap = matcher.group(1);
+            nextLayer = matcher.group(2);
             LOGGER.trace("Next layer is {}", nextLayer);
         }
 
-        Event event = new LayerInfoUpdatedEvent(new Date(), EventType.LAYERINFO_UPDATED, currentLayer, nextLayer);
+        Event event = new LayerInfoUpdatedEvent(new Date(), EventType.LAYERINFO_UPDATED, currentMap, currentLayer, nextMap, nextLayer);
 
         LOGGER.info("Retrieved layer information");
         EventEmitter.emit(event);
     }
+
+
 }

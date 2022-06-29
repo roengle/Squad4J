@@ -25,7 +25,7 @@ public class A2SUpdater {
         if(initialized)
             throw new IllegalStateException(A2SUpdater.class.getSimpleName() + " has already been initialized.");
 
-        GlobalThreadPool.getScheduler().scheduleAtFixedRate(A2SUpdater::updateA2S, 5, 30, TimeUnit.SECONDS);
+        GlobalThreadPool.getScheduler().scheduleAtFixedRate(A2SUpdater::updateA2S, 1, 30, TimeUnit.SECONDS);
 
         initialized = true;
 

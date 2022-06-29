@@ -5,6 +5,7 @@ import a2s.response.A2SInfoResponse;
 import a2s.response.A2SRulesResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import server.A2SUpdater;
 import util.ConfigLoader;
 
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class Query {
     public static void init(){
         //Dont allow re-initialization
         if(initialized)
-            return;
+            throw new IllegalStateException(Query.class.getSimpleName() + " has already been initialized.");
 
         LOGGER.info("Starting query service.");
         String host = ConfigLoader.get("$.server.host", String.class);

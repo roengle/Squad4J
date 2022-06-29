@@ -4,6 +4,8 @@ import a2s.Query;
 import a2s.response.A2SInfoResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import plugins.DBLog;
+import server.SquadServer;
 import util.ConfigLoader;
 
 import java.sql.*;
@@ -55,13 +57,32 @@ public class MySQLConnector extends Connector{
 
     private static boolean serverExists() {
         try{
-            ResultSet rs = statement.executeQuery("SELECT `id` FROM DBLog_Servers WHERE id=" + serverID + ";");
-            if(rs.first())
+            String serverName = Query.queryInfo().getName();
+            ResultSet rs = statement.executeQuery("SELECT `id`, `server` FROM DBLog_Servers WHERE id = " + serverID + ";");
+            if(rs.first()){
+                LOGGER.trace("Server with id {} already exists.", serverID);
+                if(!rs.getString("server").equals(serverName)){
+                    //Server exists but with a different name, update name
+                    updateServerName(serverName);
+                }
                 return true;
+            }
+            rs.close();
         }catch (SQLException e){
             LOGGER.error("SQL Error.", e);
         }
         return false;
+    }
+
+    private static void updateServerName(String newServerName) {
+        try {
+            LOGGER.info("Server in database with id {} has a different name than the current name of the server. Updating name to {}", serverID, newServerName);
+            statement.executeUpdate("UPDATE DBLog_Servers " +
+                    "SET `server` = \'" + newServerName + "\'" +
+                    "WHERE `id` = " + MySQLConnector.serverID + ";");
+        } catch (SQLException e) {
+            LOGGER.error("Error updating server name.", e);
+        }
     }
 
     private static boolean tablesExist(){
@@ -94,10 +115,10 @@ public class MySQLConnector extends Connector{
                 "dlc VARCHAR(255)," +
                 "mapClassname VARCHAR(255)," +
                 "layerClassname VARCHAR(255)," +
-                "map VARCHAR(255)," +
-                "layer VARCHAR(255)," +
-                "startTime DATE NOT NULL," +
-                "endTime DATE," +
+                "map VARCHAR(255) NOT NULL," +
+                "layer VARCHAR(255) NOT NULL," +
+                "startTime DATETIME," +
+                "endTime DATETIME," +
                 "winner VARCHAR(255)," +
                 "server INT NOT NULL," +
                 "KEY `server` (`server`)," +
@@ -107,10 +128,10 @@ public class MySQLConnector extends Connector{
         LOGGER.debug("Creating DBLog_Tickrates");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS DBLog_Tickrates (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "time DATE," +
+                "time DATETIME," +
                 "tickRate DOUBLE NOT NULL," +
                 "server INT NOT NULL," +
-                "`match` INT NOT NULL,\n" +
+                "`match` INT DEFAULT NULL,\n" +
                 "KEY `server` (`server`),\n" +
                 "KEY `match` (`match`),\n" +
                 "CONSTRAINT `squad4j_dblog_tickrates_fk_server` FOREIGN KEY (`server`) REFERENCES `DBLog_Servers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,\n" +
@@ -120,7 +141,7 @@ public class MySQLConnector extends Connector{
         LOGGER.debug("Creating DBLog_PlayerCounts");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS DBLog_PlayerCounts (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "time DATE NOT NULL," +
+                "time DATETIME NOT NULL," +
                 "players INT NOT NULL DEFAULT 0," +
                 "publicQueue INT NOT NULL DEFAULT 0," +
                 "reserveQueue INT NOT NULL DEFAULT 0," +
@@ -167,7 +188,7 @@ public class MySQLConnector extends Connector{
         LOGGER.debug("Creating DBLog_Deaths");
         statement.executeUpdate("CREATE TABLE IF NOT EXISTS DBLog_Deaths(" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "`time` DATETƒIME NOT NULL," +
+                "`time` DATETIME NOT NULL," +
                 "woundTime DATE," +
                 "victimName VARCHAR(255)," +
                 "victimTeamID INT," +
@@ -225,56 +246,109 @@ public class MySQLConnector extends Connector{
                 "CONSTRAINT `squad4j_dblog_revives_fk_reviver` FOREIGN KEY (`reviver`) REFERENCES `DBLog_SteamUsers` (`steamID`) ON DELETE CASCADE ON UPDATE CASCADE," +
                 "CONSTRAINT `squad4j_dblog_revives_fk_match` FOREIGN KEY (`match`) REFERENCES `DBLog_Matches` (`id`) ON DELETE CASCADE ON UPDATE CASCADE" +
                 ") CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci");
+
+        LOGGER.debug("Done creating tables");
     }
 
     private static void createServer() {
+        //TODO: If query times out, info is null. Fix
         A2SInfoResponse info = Query.queryInfo();
         String serverName = info.getName();
-        LOGGER.trace("Inserting Server(id:{}, name:{})", serverID, serverName);
         try {
-            statement.executeUpdate("INSERT INTO DBLog_Servers (id, server) VALUES(" +
+            String query = "INSERT INTO DBLog_Servers (id, server) VALUES(" +
                     serverID + ", " +
                     "'" + serverName + "'" +
-                    ");");
+                    ");";
+            LOGGER.trace(query);
+            statement.executeUpdate(query);
         } catch (SQLException e) {
-            LOGGER.error("SQL Exception", e);
+            LOGGER.error("SQL exception while creating server.", e);
         }
     }
 
-    public static Integer getMatch(){
+    public static Integer getCurrentMatchId(){
         try {
-            String query = String.format("SELECT `id` FROM DBLog_Matches WHERE `id` = %s AND `endTime` IS NULL ORDER BY `time` DESC LIMIT 1;", serverID);
+            String query = String.format("SELECT `id`, `layer` FROM DBLog_Matches WHERE `server` = %s AND `endTime` IS NULL ORDER BY `startTime` DESC LIMIT 1;", serverID);
+            if(statement == null){
+                LOGGER.warn("Cannot get current match ID yet because MySQLConnector hasn't been initialized yet.");
+                return -1;
+            }
             ResultSet rs = statement.executeQuery(query);
-            rs.first();
-            return rs.getInt("id");
+
+            String currentMap = SquadServer.getCurrentMap();
+            String currentLayer = SquadServer.getCurrentLayer();
+
+            if(rs.first() && currentLayer != null && currentLayer.equals(rs.getString("layer"))){
+                rs.close();
+                //Current layer matches most recent match in DB, go ahead and return it.
+                return rs.getInt("id");
+            }
+            rs.close();
+            LOGGER.debug("Most recent match in DB does not match current or does not exist, creating new match.");
+            //Insert new match since current match is not being tracked
+            //TODO: Fill dlc and classname values properly
+            insertMatch("", "", "", currentMap, currentLayer, null);
+            //Recalling this method will get the newly-made match id
+            return getCurrentMatchId();
         } catch (SQLException e) {
-            LOGGER.error("SQL error.", e);
-            return -1;
+            LOGGER.error("SQL exception while getting current match.", e);
+            return null;
         }
     }
 
     public static void insertPlayerCount(Date time, Integer players, Integer publicQueue, Integer reserveQueue, Integer match){
         try {
             String query = "INSERT INTO DBLog_PlayerCounts (`time`, `players`, `publicQueue`, `reserveQueue`, `server`, `match`) VALUES(" +
-                    "`" + dateTimeFormat.format(time) + "`," +
+                    "\'" + dateTimeFormat.format(time) + "\'," +
                     players + "," +
                     publicQueue + "," +
                     reserveQueue + "," +
                     serverID + "," +
-                    (match == -1 ? "NULL" : match) +
+                    (match == null ? "NULL" : match) +
                     ");";
-            LOGGER.debug(query);
+            LOGGER.trace(query);
             statement.executeUpdate(query);
         } catch (SQLException e) {
-            LOGGER.error("SQL Exception", e);
+            LOGGER.error("SQL exception inserting player count.", e);
         }
     }
 
-    public static void insertMatch(Integer id, String dlc, String mapClassname, String layerClassname, String map, String layer, Date startTime){
-
+    public static void insertMatch(String dlc, String mapClassname, String layerClassname, String map, String layer, Date startTime){
+        try{
+            String query = "INSERT INTO DBLog_Matches (dlc, mapClassname, layerClassname, map, layer, startTime, endTime, winner, `server`) VALUES (" +
+                    "\'" + dlc + "\', " +
+                    "\'" + mapClassname + "\', " +
+                    "\'" + layerClassname + "\', " +
+                    "\'" + map + "\', +" +
+                    "\'" + layer + "\', " +
+                    (startTime == null ? "NULL" : dateTimeFormat.format(startTime)) + ", " +
+                    "NULL, " +
+                    "NULL, " +
+                    serverID +
+                    ");";
+            LOGGER.trace(query);
+            statement.executeUpdate(query);
+        }catch (SQLException e){
+            LOGGER.error("SQL exception inserting match.", e);
+        }
     }
 
     public static void updateMatch(Date time, String winningFaction){
 
+    }
+
+    public static void insertTickRate(Date time, Double tickRate, Integer match){
+        try{
+            String query = "INSERT INTO DBLog_Tickrates (`time`, `tickRate`, `server`, `match`) VALUES" +
+                    "(" +
+                    "\'" + dateTimeFormat.format(time) + "\'" + ", " +
+                    tickRate + ", " +
+                    serverID + ", " +
+                    match +
+                    ");";
+            statement.executeUpdate(query);
+        }catch (SQLException e){
+            LOGGER.error("Error inserting tick rate.", e);
+        }
     }
 }
