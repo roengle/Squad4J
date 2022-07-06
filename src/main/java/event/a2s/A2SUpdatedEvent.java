@@ -3,6 +3,8 @@ package event.a2s;
 import a2s.response.A2SCombinedResponse;
 import event.Event;
 import event.EventType;
+import lombok.Data;
+import lombok.Getter;
 
 import java.util.Date;
 
@@ -14,6 +16,7 @@ import java.util.Date;
  *
  * @see listener.a2s.A2SUpdatedListener
  */
+@Getter
 public class A2SUpdatedEvent extends Event {
     private final A2SCombinedResponse response;
 
@@ -27,14 +30,5 @@ public class A2SUpdatedEvent extends Event {
     public A2SUpdatedEvent(Date date, EventType type, A2SCombinedResponse response) {
         super(date, type);
         this.response = response;
-    }
-
-    /**
-     * Gets the {@link A2SCombinedResponse} for this event.
-     *
-     * @return an {@link A2SCombinedResponse} containing A2S information.
-     */
-    public A2SCombinedResponse getResponse() {
-        return response;
     }
 }

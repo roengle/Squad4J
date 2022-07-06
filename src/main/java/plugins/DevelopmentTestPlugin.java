@@ -11,6 +11,7 @@ import listener.rcon.ChatMessageListener;
 import listener.rcon.LayerInfoUpdatedListener;
 import listener.rcon.PossessedAdminCameraListener;
 import listener.rcon.UnpossessedAdminCameraListener;
+import lombok.NoArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,6 +23,7 @@ import org.slf4j.LoggerFactory;
  *
  * Will be removed in initial release.
  */
+@NoArgsConstructor
 public class DevelopmentTestPlugin implements A2SUpdatedListener, LayerInfoUpdatedListener, ChatMessageListener,
         PossessedAdminCameraListener, UnpossessedAdminCameraListener {
     private static final Logger LOGGER = LoggerFactory.getLogger(DevelopmentTestPlugin.class);

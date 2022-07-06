@@ -6,7 +6,7 @@ import java.util.concurrent.*;
  * Class to provide global access to thread pool executors.
  *
  * Some implementation from:
- * https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/concurrent/ThreadPoolImpl.java
+ * <a href="https://github.com/Javacord/Javacord/blob/master/javacord-core/src/main/java/org/javacord/core/util/concurrent/ThreadPoolImpl.java">Javacord ThreadPoolImpl</a>
  */
 public class GlobalThreadPool {
     private static final int CORE_POOL_SIZE = 1;

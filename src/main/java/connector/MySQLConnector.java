@@ -268,7 +268,7 @@ public class MySQLConnector extends Connector{
 
     public static Integer getCurrentMatchId(){
         try {
-            String query = String.format("SELECT `id`, `layer` FROM DBLog_Matches WHERE `server` = %s AND `endTime` IS NULL ORDER BY `startTime` DESC LIMIT 1;", serverID);
+            String query = String.format("SELECT `id`, `layer` FROM DBLog_Matches WHERE `server` = %s AND `endTime` IS NULL ORDER BY `id` DESC LIMIT 1;", serverID);
             if(statement == null){
                 LOGGER.warn("Cannot get current match ID yet because MySQLConnector hasn't been initialized yet.");
                 return -1;
@@ -279,9 +279,10 @@ public class MySQLConnector extends Connector{
             String currentLayer = SquadServer.getCurrentLayer();
 
             if(rs.first() && currentLayer != null && currentLayer.equals(rs.getString("layer"))){
+                int matchId = rs.getInt("id");
                 rs.close();
                 //Current layer matches most recent match in DB, go ahead and return it.
-                return rs.getInt("id");
+                return matchId;
             }
             rs.close();
             LOGGER.debug("Most recent match in DB does not match current or does not exist, creating new match.");
@@ -326,7 +327,6 @@ public class MySQLConnector extends Connector{
                     "NULL, " +
                     serverID +
                     ");";
-            LOGGER.trace(query);
             statement.executeUpdate(query);
         }catch (SQLException e){
             LOGGER.error("SQL exception inserting match.", e);

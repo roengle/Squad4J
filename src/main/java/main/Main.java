@@ -46,20 +46,22 @@ public class Main {
 
         printLogo();
 
-        /* Initialize services, squad server instance, log tailer in order. */
+        /* Initialize services */
         //Initialize RCON service
         Rcon.init();
         //Initailize query service
         Query.init();
-
         //Initialize log tailer service
         TailerService.init();
 
+        /*Initialize servers */
         //Initialize squad server
         SquadServer.init();
 
+        /* Initialize connectors */
         MySQLConnector.init();
 
+        /* Initialize event emitter last */
         //Intialize event emitter service
         EventEmitter.init();
 

@@ -7,6 +7,7 @@ import event.rcon.UnpossessedAdminCameraEvent;
 import listener.rcon.ChatMessageListener;
 import listener.rcon.PossessedAdminCameraListener;
 import listener.rcon.UnpossessedAdminCameraListener;
+import lombok.NoArgsConstructor;
 import net.minidev.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +25,7 @@ import java.util.*;
  *
  * A prefix for commands can be configured. Each individual command can also be configured to ignore certain chat types.
  */
+@NoArgsConstructor
 public class ChatCommands implements ChatMessageListener{
     private static final Logger LOGGER = LoggerFactory.getLogger(ChatCommands.class);
     private static final String PREFIX = ConfigLoader.get("$.plugins.ChatCommands.prefix", String.class);
