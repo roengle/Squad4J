@@ -3,18 +3,23 @@ package event.rcon;
 import entity.Player;
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player list is updated from {@link server.RconUpdater}.
  *
  * @see server.RconUpdater
  * @see listener.rcon.PlayerListUpdatedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerListUpdatedEvent extends Event {
     private final List<Player> playerList;
 
@@ -31,11 +36,11 @@ public class PlayerListUpdatedEvent extends Event {
     }
 
     /**
-     * Gets a {@link List} representing the players in the server
+     * Returns an unmodifiable {@link List} of the players.
      *
-     * @return a {@link List} of players in the server
+     * @return an unmodifiable list of the players
      */
-    public List<Player> getPlayerList() {
-        return playerList;
+    public List<Player> getPlayerList(){
+        return Collections.unmodifiableList(playerList);
     }
 }

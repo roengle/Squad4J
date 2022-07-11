@@ -5,18 +5,20 @@ import event.Event;
 import event.EventType;
 import lombok.Data;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where A2S information is retrieved and updated. Contains a {@link A2SCombinedResponse},
  * which contains the responses for both A2S_INFO and A2S_RULES queries.
  *
  * @see listener.a2s.A2SUpdatedListener
+ *
+ * @author Robert Engle
  */
 @Getter
+@ToString
 public class A2SUpdatedEvent extends Event {
     private final A2SCombinedResponse response;
 

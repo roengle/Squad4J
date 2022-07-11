@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player disconnects from the server.
  *
  * @see listener.logparser.PlayerDisconnectedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerDisconnectedEvent extends Event {
     private final String steamid;
 
@@ -26,14 +30,5 @@ public class PlayerDisconnectedEvent extends Event {
     public PlayerDisconnectedEvent(Date date, EventType type, Integer chainID, String steamid){
         super(date, type, chainID);
         this.steamid = steamid;
-    }
-
-    /**
-     * Gets the steam64id of the player who disconnected.
-     *
-     * @return the steam64id of the player
-     */
-    public String getSteamid() {
-        return steamid;
     }
 }

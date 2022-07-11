@@ -2,16 +2,20 @@ package event.rcon;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is warned.
  *
  * @see listener.rcon.PlayerWarnedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerWarnedEvent extends Event {
     private final String playerName;
     private final String message;
@@ -28,23 +32,5 @@ public class PlayerWarnedEvent extends Event {
         super(date, type);
         this.playerName = playerName;
         this.message = message;
-    }
-
-    /**
-     * Gets the name of the player warned.
-     *
-     * @return the name of the player
-     */
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    /**
-     * Gets the message content of the warning.
-     *
-     * @return the message content of the warning
-     */
-    public String getMessage() {
-        return message;
     }
 }

@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is damaged.
  *
  * @see listener.logparser.PlayerDamagedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerDamagedEvent extends Event {
     private final String victimName;
     private final Double damage;
@@ -39,50 +43,5 @@ public class PlayerDamagedEvent extends Event {
         this.attackerName = attackerName;
         this.weapon = weapon;
         this.weaponEntityId = weaponEntityId;
-    }
-
-    /**
-     * Gets the name of the person who was damaged (referred to as the "victim").
-     *
-     * @return the name of the victim that was damaged
-     */
-    public String getVictimName() {
-        return victimName;
-    }
-
-    /**
-     * Gets the amount of damage that was dealt to the victim.
-     *
-     * @return the amount of damage dealt
-     */
-    public Double getDamage() {
-        return damage;
-    }
-
-    /**
-     * Gets the name of the attacker who dealt the damage.
-     *
-     * @return the name of the attacker
-     */
-    public String getAttackerName() {
-        return attackerName;
-    }
-
-    /**
-     * Gets the name of the weapon used to damage the victim.
-     *
-     * @return the name of the weapon that damaged the victim
-     */
-    public String getWeapon() {
-        return weapon;
-    }
-
-    /**
-     * Gets the entity ID of the weapon that damaged the victim.
-     *
-     * @return the entity ID of the weapon that damaged the victim
-     */
-    public String getWeaponEntityId() {
-        return weaponEntityId;
     }
 }

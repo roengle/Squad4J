@@ -2,18 +2,22 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is wounded. This occurs when a player is incapacitated, but is able to still
  * be revived. This is different from a {@link PlayerDiedEvent}, in which a player has given up after being wounded.
  *
  * @see PlayerDiedEvent
  * @see listener.logparser.PlayerWoundedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerWoundedEvent extends Event {
     private final String victimName;
     private final Double damage;
@@ -39,41 +43,5 @@ public class PlayerWoundedEvent extends Event {
         this.damage = damage;
         this.weapon = weapon;
         //TODO: Figure out attacker
-    }
-
-    /**
-     * Gets the name of the person who was wounded--the victim.
-     *
-     * @return the name of the victim
-     */
-    public String getVictimName() {
-        return victimName;
-    }
-
-    /**
-     * Gets the name of the attacker controller used to wound the victim.
-     *
-     * @return the name of the attacker controller
-     */
-    public String getAttackerController() {
-        return attackerController;
-    }
-
-    /**
-     * Gets the damage dealt to wound the player
-     *
-     * @return the damage dealt
-     */
-    public Double getDamage() {
-        return damage;
-    }
-
-    /**
-     * Gets the name of the weapon used to wound the player.
-     *
-     * @return the name of the weapon used
-     */
-    public String getWeapon() {
-        return weapon;
     }
 }

@@ -2,17 +2,21 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player connects to the server. Is fired AFTER the corresponding {@link SteamidConnectedEvent}
  * for the player, meaning the player's steam ID should be in memory.
  *
  * @see listener.logparser.PlayerConnectedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerConnectedEvent extends Event {
     private final String playerName;
 
@@ -28,14 +32,4 @@ public class PlayerConnectedEvent extends Event {
         super(date, type, chainID);
         this.playerName = playerName;
     }
-
-    /**
-     * Gets the name of the player that connected
-     *
-     * @return the name of the player that connected.
-     */
-    public String getPlayerName() {
-        return playerName;
-    }
-
 }

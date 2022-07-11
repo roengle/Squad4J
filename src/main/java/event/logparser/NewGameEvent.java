@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a new game starts.
  *
  * @see listener.logparser.NewGameListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class NewGameEvent extends Event {
     private final String dlc;
     private final String mapName;
@@ -35,41 +39,5 @@ public class NewGameEvent extends Event {
         this.mapName = mapName;
         this.layerName = layerName;
         this.maxTickRate = maxTickRate;
-    }
-
-    /**
-     * Gets the name of the DLC, if applicable.
-     *
-     * @return the name of the DLC, if applicable
-     */
-    public String getDlc() {
-        return dlc;
-    }
-
-    /**
-     * Gets the name of the map changed to.
-     *
-     * @return the name of the map changed to
-     */
-    public String getMapName() {
-        return mapName;
-    }
-
-    /**
-     * Gets the name of the layer changed to.
-     *
-     * @return the name of the layer changed to.
-     */
-    public String getLayerName() {
-        return layerName;
-    }
-
-    /**
-     * Gets the max tick rate for the new game
-     *
-     * @return the max tick rate for the new game
-     */
-    public Integer getMaxTickRate() {
-        return maxTickRate;
     }
 }

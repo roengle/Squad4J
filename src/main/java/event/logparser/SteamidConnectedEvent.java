@@ -2,18 +2,22 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Described an event where a player connects to a server an the steam64id is provided. This event is fired
  * BEFORE the corresponding {@link PlayerConnectedEvent}, in which only the player name is provided.
  *
  * @see PlayerConnectedEvent
  * @see listener.logparser.SteamidConnectedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class SteamidConnectedEvent extends Event {
     private final String steamid;
     private final String name;
@@ -32,23 +36,5 @@ public class SteamidConnectedEvent extends Event {
         this.steamid = steamid;
         this.name = name;
         //TODO: Cache steamid with playername for connected, remove from cache when disconnected
-    }
-
-    /**
-     * Gets the steam64id of the player connected.
-     *
-     * @return the steam64id of the player
-     */
-    public String getSteamid() {
-        return steamid;
-    }
-
-    /**
-     * Gets the name of the player connected.
-     *
-     * @return the name of the player
-     */
-    public String getName() {
-        return name;
     }
 }

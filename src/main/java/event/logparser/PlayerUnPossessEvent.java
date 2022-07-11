@@ -2,19 +2,23 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
+ * Describes an event where a player unposssesses an entity.
  *
- * Describes an event where a player unpossesses an entity.
- *
- * Note: The chain ID of a {@link PlayerUnPossessEvent} will match the corresponding {@link PlayerPossessEvent}.
+ * Note: The chain ID of a {@link PlayerUnPossessEvent} will match its corresponding {@link PlayerPossessEvent}.
  *
  * @see PlayerPossessEvent
  * @see listener.logparser.PlayerUnPossessListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerUnPossessEvent extends Event {
     private final String playerName;
 
@@ -30,14 +34,5 @@ public class PlayerUnPossessEvent extends Event {
         super(date, type, chainID);
         this.playerName = playerName;
         //TODO: Remove stored chain ID from somewhere
-    }
-
-    /**
-     * Gets the name of the player who unpossessed the entity.
-     *
-     * @return the name of the player
-     */
-    public String getPlayerName() {
-        return playerName;
     }
 }

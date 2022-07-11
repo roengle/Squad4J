@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is revived.
  *
  * @see listener.logparser.PlayerRevivedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerRevivedEvent extends Event {
     private final String reviverName;
     private final String victimName;
@@ -29,23 +33,5 @@ public class PlayerRevivedEvent extends Event {
         super(date, type, chainID);
         this.reviverName = reviverName;
         this.victimName = victimName;
-    }
-
-    /**
-     * Gets the name of the reviver.
-     *
-     * @return the name of the reviver
-     */
-    public String getReviverName() {
-        return reviverName;
-    }
-
-    /**
-     * Gets the name of the player who was revived.
-     *
-     * @return the name of the victim who was revived
-     */
-    public String getVictimName() {
-        return victimName;
     }
 }

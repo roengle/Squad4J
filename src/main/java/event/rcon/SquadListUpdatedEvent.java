@@ -3,18 +3,23 @@ package event.rcon;
 import entity.Squad;
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a squad list is updated from {@link server.RconUpdater}.
  *
  * @see server.RconUpdater
  * @see listener.rcon.SquadListUpdatedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class SquadListUpdatedEvent extends Event {
     private final List<Squad> squadList;
 
@@ -31,11 +36,11 @@ public class SquadListUpdatedEvent extends Event {
     }
 
     /**
-     * Gets a {@link List} representing the squads
+     * Gets an unmodifiable {@link List} representing the squads
      *
      * @return a {@link List} representing the squads
      */
     public List<Squad> getSquadList() {
-        return squadList;
+        return Collections.unmodifiableList(squadList);
     }
 }

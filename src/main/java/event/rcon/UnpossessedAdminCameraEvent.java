@@ -2,16 +2,20 @@ package event.rcon;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where an admin unpossesses the admin cam.
  *
  * @see listener.rcon.UnpossessedAdminCameraListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class UnpossessedAdminCameraEvent extends Event {
     private final String steamid;
     private final String name;
@@ -28,23 +32,5 @@ public class UnpossessedAdminCameraEvent extends Event {
         super(date, type);
         this.steamid = steamid;
         this.name = name;
-    }
-
-    /**
-     * Gets the steam64id of the admin who exited admin cam.
-     *
-     * @return the steam64id of the admin who exited admin cam
-     */
-    public String getSteamid() {
-        return steamid;
-    }
-
-    /**
-     * Gets the name of the admin who exited admin cam.
-     *
-     * @return the name of the admin who exited admin cam
-     */
-    public String getName() {
-        return name;
     }
 }

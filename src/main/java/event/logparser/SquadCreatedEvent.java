@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a squad is created by a player.
  *
  * @see listener.logparser.SquadCreatedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class SquadCreatedEvent extends Event {
     private final String playerName;
     private final String steamid;
@@ -39,50 +43,5 @@ public class SquadCreatedEvent extends Event {
         this.squadid = squadid;
         this.squadName = squadName;
         this.teamName = teamName;
-    }
-
-    /**
-     * Gets the name of the player that created the squad.
-     *
-     * @return the name of the player
-     */
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    /**
-     * Gets the steam64id of the player that created the squad.
-     *
-     * @return the steam64id of the player
-     */
-    public String getSteamid() {
-        return steamid;
-    }
-
-    /**
-     * Gets the name of the squad created.
-     *
-     * @return the name of the squad
-     */
-    public String getSquadName() {
-        return squadName;
-    }
-
-    /**
-     * Gets the name of the team the squad was created on.
-     *
-     * @return the name of the team
-     */
-    public String getTeamName() {
-        return teamName;
-    }
-
-    /**
-     * Gets the id of the squad created.
-     *
-     * @return the id of the squad
-     */
-    public Integer getSquadid() {
-        return squadid;
     }
 }

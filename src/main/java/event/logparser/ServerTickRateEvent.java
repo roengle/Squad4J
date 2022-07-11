@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where the tick rate of the server is updated.
  *
  * @see listener.logparser.ServerTickRateListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class ServerTickRateEvent extends Event {
     private final Double tickRate;
 
@@ -26,14 +30,5 @@ public class ServerTickRateEvent extends Event {
     public ServerTickRateEvent(Date date, EventType type, Integer chainID, Double tickRate){
         super(date, type, chainID);
         this.tickRate = tickRate;
-    }
-
-    /**
-     * Gets the tick rate for this event.
-     *
-     * @return the tick rate
-     */
-    public Double getTickRate() {
-        return tickRate;
     }
 }

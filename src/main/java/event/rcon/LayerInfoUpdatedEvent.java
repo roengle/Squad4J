@@ -4,18 +4,20 @@ import event.Event;
 import event.EventType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where layer information is updated from {@link server.RconUpdater}.
  *
  * @see server.RconUpdater
  * @see listener.rcon.LayerInfoUpdatedListener
+ *
+ * @author Robert Engle
  */
 @Getter
+@ToString
 public class LayerInfoUpdatedEvent extends Event {
     private final String currentMap;
     private final String currentLayer;

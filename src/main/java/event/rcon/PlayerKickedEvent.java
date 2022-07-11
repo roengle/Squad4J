@@ -2,16 +2,20 @@ package event.rcon;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is kicked from the server.
  *
  * @see listener.rcon.PlayerKickedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerKickedEvent extends Event {
     private final String playerid;
     private final String steamid;
@@ -31,32 +35,5 @@ public class PlayerKickedEvent extends Event {
         this.playerid = playerid;
         this.steamid = steamid;
         this.name = name;
-    }
-
-    /**
-     * Gets the playerid of the player kicked.
-     *
-     * @return the playerid of the player kicked
-     */
-    public String getPlayerid() {
-        return playerid;
-    }
-
-    /**
-     * Gets the steam64id of the player kicked.
-     *
-     * @return the steam64id of the player kicked
-     */
-    public String getSteamid() {
-        return steamid;
-    }
-
-    /**
-     * Gets the name of the player kicked.
-     *
-     * @return the name of the player kicked
-     */
-    public String getName() {
-        return name;
     }
 }

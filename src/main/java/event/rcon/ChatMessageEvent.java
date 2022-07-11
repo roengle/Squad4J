@@ -2,16 +2,20 @@ package event.rcon;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a chat message is sent by a player.
  *
  * @see listener.rcon.ChatMessageListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class ChatMessageEvent extends Event {
     private final String chatType;
     private final String steamid;
@@ -35,41 +39,5 @@ public class ChatMessageEvent extends Event {
         this.steamid = steamid;
         this.playerName = playerName;
         this.message = message;
-    }
-
-    /**
-     * Gets the chat type of the message.
-     *
-     * @return the chat type
-     */
-    public String getChatType() {
-        return chatType;
-    }
-
-    /**
-     * Gets the steam64id of the user who sent the message.
-     *
-     * @return the steam64id of the message author
-     */
-    public String getSteamid() {
-        return steamid;
-    }
-
-    /**
-     * Gets the name of the player who sent the message.
-     *
-     * @return the name of the message author
-     */
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    /**
-     * Gets the content of the message.
-     *
-     * @return the content of the message
-     */
-    public String getMessage() {
-        return message;
     }
 }

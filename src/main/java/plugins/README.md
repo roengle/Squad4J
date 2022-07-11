@@ -24,18 +24,24 @@ To have your plugin react to events, simply implement one or more listener inter
 ```java
 import listener.rcon.PossessedAdminCameraListener;
 import listener.rcon.UnpossessedAdminCameraListener;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
 public class AdminCamTracker implements PossessedAdminCameraListener, UnpossessedAdminCameraListener {
+    
+    //Notice that since @NoArgsConstructor was used, a constructor
+    //doesn't need to be made.
+    
     @Override
     public void onPossessedAdminCamera(PossessedAdminCameraEvent possessedAdminCameraEvent) {
-        //Execute code here.
-        //You can use the PossessedAdminCameraEvent passed into this method for details of the event.
-        //Each event has its own set of fields that can be accessed to figure out details of the event.
+      //Execute code here.
+      //You can use the PossessedAdminCameraEvent passed into this method for details of the event.
+      //Each event has its own set of fields that can be accessed to figure out details of the event.
     }
 
     @Override
     public void onUnpossessedAdminCamera(UnpossessedAdminCameraEvent unpossessedAdminCameraEvent) {
-        //More code execution here.
+      //More code execution here.
     }
 }
 ```
@@ -55,19 +61,22 @@ these constraints are met.
 
 ```java
 import concurrent.GlobalThreadPool;
+import lombok.NoArgsConstructor;
 import rcon.Rcon;
 
 import java.util.concurrent.TimeUnit;
 
 public class UselessBroadcasterPlugin {
-    //Public no-argument constructor
-    public UselessBroadcasterPlugin() {
-        //Schedule code to run every 5 minutes, with an initial delay of 1 minute.
-        GlobalThreadPool.getScheduler().scheduleAtFixedRate(() -> {
-            Rcon.command("AdminBroadcast I broadcast this message every 5 mintues.");
-        }, 1, 5, TimeUnit.MINUTES);
-    }
+    
+  //You can also define your own no-argument constructor if you want
+  //to execute some code on plugin instantiation.
+  public UselessBroadcasterPlugin() {
+    //Schedule code to run every 5 minutes, with an initial delay of 1 minute.
+    GlobalThreadPool.getScheduler().scheduleAtFixedRate(() -> {
+      Rcon.command("AdminBroadcast I broadcast this message every 5 minutes.");
+    }, 1, 5, TimeUnit.MINUTES);
+  }
 }
 ```
 
-The rest of this README is a work in progress.
+The rest of this README is a **work in progress**.

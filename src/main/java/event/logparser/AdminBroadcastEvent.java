@@ -1,18 +1,24 @@
 package event.logparser;
 
+import com.google.common.base.Objects;
 import event.Event;
 import event.EventType;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where an admin broadcasts a message. An {@link AdminBroadcastEvent} contains the message
  * and the name of the broadcast sender.
  *
  * @see listener.logparser.AdminBroadcastListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class AdminBroadcastEvent extends Event {
     private final String message;
     private final String from;
@@ -30,23 +36,5 @@ public class AdminBroadcastEvent extends Event {
         super(date, type, chainID);
         this.message = message;
         this.from = from;
-    }
-
-    /**
-     * Gets the message that was broadcasted.
-     *
-     * @return a {@link String} of the message broadcasted
-     */
-    public String getMessage() {
-        return message;
-    }
-
-    /**
-     * Gets the name of the admin who broadcasted the message.
-     *
-     * @return a {@link String} of the name of the admin who broadcasted the message
-     */
-    public String getFrom() {
-        return from;
     }
 }

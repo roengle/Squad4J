@@ -2,16 +2,20 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
- * Describes an event where a player posesses an entity.
+ * Describes an event where a player possesses an entity.
  *
  * @see listener.logparser.PlayerPossessListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerPossessEvent extends Event {
     private final String playerName;
     private final String entityPossessName;
@@ -30,23 +34,5 @@ public class PlayerPossessEvent extends Event {
         this.playerName = playerName;
         this.entityPossessName = possessName;
         //TODO: Store chain ID somewhere
-    }
-
-    /**
-     * Gets the name of the player who possessed the entity.
-     *
-     * @return the name of the player
-     */
-    public String getPlayerName() {
-        return playerName;
-    }
-
-    /**
-     * Gets the name of the entity that was possessed.
-     *
-     * @return the name of the entity
-     */
-    public String getEntityPossessName() {
-        return entityPossessName;
     }
 }

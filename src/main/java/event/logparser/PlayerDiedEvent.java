@@ -2,18 +2,22 @@ package event.logparser;
 
 import event.Event;
 import event.EventType;
+import lombok.Getter;
+import lombok.ToString;
 
 import java.util.Date;
 
 /**
- * @author Robert Engle
- *
  * Describes an event where a player is killed AND gives up. This is different to a {@link PlayerWoundedEvent}, in which
  * occurs when a player is incapacitated, but has not given up.
  *
  * @see PlayerWoundedEvent
  * @see listener.logparser.PlayerDiedListener
+ *
+ * @author Robert Engle
  */
+@Getter
+@ToString
 public class PlayerDiedEvent extends Event {
     private final String victimName;
     private final Double damage;
@@ -38,41 +42,5 @@ public class PlayerDiedEvent extends Event {
         this.damage = damage;
         this.weapon = weapon;
         this.attackerPlayerController = playerController;
-    }
-
-    /**
-     * Gets the name of the victim.
-     *
-     * @return the victim's name
-     */
-    public String getVictimName() {
-        return victimName;
-    }
-
-    /**
-     * Gets the damage used to kill the victim.
-     *
-     * @return the damage used to kill the victim
-     */
-    public Double getDamage() {
-        return damage;
-    }
-
-    /**
-     * Gets the weapon used to kill the victim.
-     *
-     * @return the weapon used to kill the victim
-     */
-    public String getWeapon() {
-        return weapon;
-    }
-
-    /**
-     * Gets the name of the player controller who killed the victim.
-     *
-     * @return the name of the attacker
-     */
-    public String getPlayerController() {
-        return attackerPlayerController;
     }
 }
