@@ -1,8 +1,8 @@
 package listener.rcon;
 
 import event.rcon.UnpossessedAdminCameraEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
-public interface UnpossessedAdminCameraListener extends GloballyAttachbleListener {
+public interface UnpossessedAdminCameraListener extends GloballyAttachableListener {
     public void onUnpossessedAdminCamera(UnpossessedAdminCameraEvent unpossessedAdminCameraEvent);
 }

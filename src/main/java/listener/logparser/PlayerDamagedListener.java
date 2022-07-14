@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.PlayerDamagedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface PlayerDamagedListener extends GloballyAttachbleListener {
+public interface PlayerDamagedListener extends GloballyAttachableListener {
     public void onPlayerDamaged(PlayerDamagedEvent playerDamagedEvent);
 }

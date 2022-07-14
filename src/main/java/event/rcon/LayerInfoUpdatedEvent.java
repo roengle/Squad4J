@@ -2,7 +2,6 @@ package event.rcon;
 
 import event.Event;
 import event.EventType;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.ToString;
 

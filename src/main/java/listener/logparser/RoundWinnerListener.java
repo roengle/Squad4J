@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.RoundWinnerEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface RoundWinnerListener extends GloballyAttachbleListener {
+public interface RoundWinnerListener extends GloballyAttachableListener {
     public void onRoundWinner(RoundWinnerEvent roundWinnerEvent);
 }

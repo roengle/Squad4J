@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.SquadCreatedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface SquadCreatedListener extends GloballyAttachbleListener {
+public interface SquadCreatedListener extends GloballyAttachableListener {
     public void onSquadCreated(SquadCreatedEvent squadCreatedEvent);
 }

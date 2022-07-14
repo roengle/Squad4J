@@ -20,6 +20,10 @@ public class AdminListReader {
     public static final Pattern groupPattern = Pattern.compile(groupRegex);
     public static final Pattern adminPattern = Pattern.compile(adminRegex);
 
+    private AdminListReader(){
+        throw new IllegalStateException("Utility classes cannot be instantiated.");
+    }
+
     public static List<String> getAdminIdsFromRemote(String url) throws IOException {
         //TODO: Test implementation
         URL u = new URL(url);

@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.SteamidConnectedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface SteamidConnectedListener extends GloballyAttachbleListener {
+public interface SteamidConnectedListener extends GloballyAttachableListener {
     public void onSteamidConnected(SteamidConnectedEvent steamidConnectedEvent);
 }

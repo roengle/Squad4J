@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.AdminBroadcastEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface AdminBroadcastListener extends GloballyAttachbleListener {
+public interface AdminBroadcastListener extends GloballyAttachableListener {
     public void onAdminBroadcast(AdminBroadcastEvent adminBroadcastEvent);
 }

@@ -1,23 +1,16 @@
 package main;
 
 import a2s.Query;
-import a2s.response.A2SCombinedResponse;
 import connector.MySQLConnector;
 import event.Event;
 import event.EventType;
-import event.a2s.A2SUpdatedEvent;
-import event.logparser.NewGameEvent;
-import event.logparser.PlayerDiedEvent;
 import event.logparser.ServerTickRateEvent;
-import server.A2SUpdater;
-import server.EventEmitter;
-import server.RconUpdater;
-import server.tailer.TailerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import rcon.Rcon;
+import server.EventEmitter;
 import server.SquadServer;
-import util.ConfigLoader;
+import server.tailer.TailerService;
 import util.logger.LoggerUtil;
 
 import java.util.Date;

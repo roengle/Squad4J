@@ -55,22 +55,22 @@ public class DBLog implements A2SUpdatedListener, NewGameListener, PlayerDiedLis
 
     @Override
     public void onPlayerDied(PlayerDiedEvent playerDiedEvent) {
-
+        //TODO: Implement
     }
 
     @Override
     public void onPlayerRevived(PlayerRevivedEvent playerRevivedEvent) {
-
+        //TODO: Implement
     }
 
     @Override
     public void onPlayerWoundedEvent(PlayerWoundedEvent playerWoundedEvent) {
-
+        //TODO: Implement
     }
 
     @Override
     public void onRoundWinner(RoundWinnerEvent roundWinnerEvent) {
-
+        //TODO: Implement
     }
 
     @Override
@@ -90,6 +90,6 @@ public class DBLog implements A2SUpdatedListener, NewGameListener, PlayerDiedLis
 
     @Override
     public void onSteamidConnected(SteamidConnectedEvent steamidConnectedEvent) {
-
+        //TODO: Implement
     }
 }

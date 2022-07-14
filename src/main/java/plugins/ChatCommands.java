@@ -2,11 +2,7 @@ package plugins;
 
 import com.jayway.jsonpath.JsonPathException;
 import event.rcon.ChatMessageEvent;
-import event.rcon.PossessedAdminCameraEvent;
-import event.rcon.UnpossessedAdminCameraEvent;
 import listener.rcon.ChatMessageListener;
-import listener.rcon.PossessedAdminCameraListener;
-import listener.rcon.UnpossessedAdminCameraListener;
 import lombok.NoArgsConstructor;
 import net.minidev.json.JSONArray;
 import org.slf4j.Logger;
@@ -14,7 +10,10 @@ import org.slf4j.LoggerFactory;
 import rcon.Rcon;
 import util.ConfigLoader;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author Robert Engle
@@ -78,7 +77,7 @@ public class ChatCommands implements ChatMessageListener{
                         broadcastCommands.put(commandName, command);
                         break;
                     default:
-                        LOGGER.error("\"type\" must be either \"warn\" or \"broadcast\". It currently is " + type);
+                        LOGGER.error("\"type\" must be either \"warn\" or \"broadcast\". It currently is {}", type);
                 }
             }
         }catch(JsonPathException pathExp){

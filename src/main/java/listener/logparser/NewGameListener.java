@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.NewGameEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface NewGameListener extends GloballyAttachbleListener {
+public interface NewGameListener extends GloballyAttachableListener {
     public void onNewGame(NewGameEvent newGameEvent);
 }

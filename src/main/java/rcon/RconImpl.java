@@ -21,17 +21,17 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.function.Consumer;
 
 /**
- * @author Robert Engle
- * @version 1.0.1
  * Class which interfaces with the RCON server, constructing and sending RCON packets as necessary.
  *
- * https://github.com/roengle/SimpleRcon
+ * <a href=https://github.com/roengle/SimpleRcon>SimpleRcon implementation</a>
  *
  * Source RCON Protocol:
- * https://developer.valvesoftware.com/wiki/Source_RCON_Protocol
+ * <a href="https://developer.valvesoftware.com/wiki/Source_RCON_Protocol">Source RCON Protocol Documentation</a>
+ *
+ * @author Robert Engle
  */
 public class RconImpl {
-    private static Logger LOGGER = LoggerFactory.getLogger(RconImpl.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(RconImpl.class);
 
     private final String host;
     private final Integer port;
@@ -39,7 +39,6 @@ public class RconImpl {
 
     private final Object sync = new Object();
     private final Random rand = new Random();
-    private final boolean executing = false;
 
     private Socket socket;
 

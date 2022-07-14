@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.ServerTickRateEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface ServerTickRateListener extends GloballyAttachbleListener {
+public interface ServerTickRateListener extends GloballyAttachableListener {
     public void onServerTickRate(ServerTickRateEvent serverTickRateEvent);
 }

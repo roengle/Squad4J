@@ -1,8 +1,8 @@
 package listener.rcon;
 
 import event.rcon.PlayerKickedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
-public interface PlayerKickedListener extends GloballyAttachbleListener {
+public interface PlayerKickedListener extends GloballyAttachableListener {
     public void onPlayerKicked(PlayerKickedEvent playerKickedEvent);
 }

@@ -20,6 +20,10 @@ public class GlobalThreadPool {
     private static final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(
             CORE_POOL_SIZE, new NamedThreadFactory("Squad4J - Central ScheduledExecutorService"));
 
+    private GlobalThreadPool(){
+        throw new IllegalStateException("Utility classes cannot be instantiated.");
+    }
+
     /**
      * Gets the central {@link ExecutorService} for Squad4J.
      *

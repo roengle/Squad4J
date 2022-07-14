@@ -1,8 +1,8 @@
 package listener.rcon;
 
 import event.rcon.ChatMessageEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
-public interface ChatMessageListener extends GloballyAttachbleListener {
+public interface ChatMessageListener extends GloballyAttachableListener {
     public void onChatMessage(ChatMessageEvent chatMessageEvent);
 }

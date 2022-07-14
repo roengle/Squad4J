@@ -1,12 +1,15 @@
 package a2s.response;
 
+import lombok.Getter;
+
 /**
- * @author Robert Engle
- *
- * https://github.com/roengle/squadQuery/blob/main/src/response/Response.java
+ * <a href="https://github.com/roengle/squadQuery/blob/main/src/response/Response.java">squadQuery implementation</a>
  *
  * Abstract class to represent a response from a query.
+ *
+ * @author Robert Engle
  */
+@Getter
 public abstract class Response {
     private final byte[] rawData;
 
@@ -15,16 +18,7 @@ public abstract class Response {
      *
      * @param rawData an array of bytes representing the raw data sent for the A2S response
      */
-    public Response(byte[] rawData){
+    protected Response(byte[] rawData){
         this.rawData = rawData;
-    }
-
-    /**
-     * Gets the raw data for the response.
-     *
-     * @return a byte array representing the raw data of the response.
-     */
-    public final byte[] getRawData() {
-        return rawData;
     }
 }

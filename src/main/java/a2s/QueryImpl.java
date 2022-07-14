@@ -43,7 +43,7 @@ public class QueryImpl {
     }
 
     protected A2SInfoResponse queryInfo() throws IOException {
-        InetAddress address = InetAddress.getByName(this.address);
+        InetAddress inetAddress = InetAddress.getByName(this.address);
 
         String payload = "Source Engine Query\0";
 
@@ -57,7 +57,7 @@ public class QueryImpl {
         buffer.put((byte)'T');
         buffer.put(payload.getBytes(StandardCharsets.UTF_8));
 
-        send(this.socket, address, this.port, buffer.array());
+        send(this.socket, inetAddress, this.port, buffer.array());
 
         DatagramPacket receivingPacket = receiveAsync(this.socket);
 
@@ -77,7 +77,7 @@ public class QueryImpl {
             for (int i = 5; i <= 8; i++) {
                 buffer.put(receivedData[i]);
             }
-            send(this.socket, address, this.port, buffer.array());
+            send(this.socket, inetAddress, this.port, buffer.array());
 
             DatagramPacket receivedPacket = receiveAsync(this.socket);
             if(receivedPacket != null){
@@ -125,7 +125,7 @@ public class QueryImpl {
             }
 
             send(this.socket, address, this.port, buffer.array());
-            receivedData = receiveAsync(this.socket).getData();
+            receivedData =  receiveAsync(this.socket).getData();
 
             return A2SRulesResponse.from(receivedData);
         }else{

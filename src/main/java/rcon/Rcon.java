@@ -14,7 +14,7 @@ import util.ConfigLoader;
 public class Rcon {
     private static final Logger LOGGER = LoggerFactory.getLogger(Rcon.class);
 
-    private static RconImpl rcon;
+    private static RconImpl rconImpl;
     private static boolean initialized = false;
 
     public static void init(){
@@ -26,7 +26,7 @@ public class Rcon {
         String password = ConfigLoader.get("$.server.rconPassword", String.class);
         try {
             LOGGER.info("Connecting to RCON server.");
-            rcon = new RconImpl(host, port, password);
+            rconImpl = new RconImpl(host, port, password);
         } catch (AuthenticationException e) {
             LOGGER.error("Error authenticating with RCON server.");
             LOGGER.error(e.getMessage());
@@ -34,7 +34,7 @@ public class Rcon {
         }
         LOGGER.info("Connected to RCON server.");
 
-        rcon.onRconPacket(rconPacket -> {
+        rconImpl.onRconPacket(rconPacket -> {
             if(rconPacket.getType() == RconImpl.SERVERDATA_BROADCAST){
                 LogParser.parseLine(rconPacket.getPayloadAsString());
             }
@@ -47,7 +47,7 @@ public class Rcon {
     private Rcon(){}
 
     public static String command(String cmd){
-        return initialized ? rcon.command(cmd) : "";
+        return initialized ? rconImpl.command(cmd) : "";
     }
 
 }

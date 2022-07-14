@@ -1,9 +1,7 @@
 package event.logparser;
 
-import com.google.common.base.Objects;
 import event.Event;
 import event.EventType;
-import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.ToString;
 

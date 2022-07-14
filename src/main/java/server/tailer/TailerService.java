@@ -38,7 +38,8 @@ public class TailerService {
                 true,
                 false,
                 10000);
-        LOGGER.info(String.format("Watching logfile %s", configFile.getAbsolutePath()));
+        String absolutePath = configFile.getAbsolutePath();
+        LOGGER.info("Watching logfile {}", absolutePath);
         new Thread(tailer).start();
 
         initialized = true;

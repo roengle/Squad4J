@@ -1,8 +1,8 @@
 package listener.rcon;
 
 import event.rcon.PlayerListUpdatedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
-public interface PlayerListUpdatedListener extends GloballyAttachbleListener {
+public interface PlayerListUpdatedListener extends GloballyAttachableListener {
     public void onPlayerListUpdated(PlayerListUpdatedEvent playerListUpdatedEvent);
 }

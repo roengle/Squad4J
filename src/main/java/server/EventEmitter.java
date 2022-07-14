@@ -2,7 +2,7 @@ package server;
 
 import com.jayway.jsonpath.PathNotFoundException;
 import event.Event;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import util.ClassHelper;
@@ -25,14 +25,17 @@ public class EventEmitter {
     private static boolean initialized = false;
 
     //Map plugin classes to a single instance for that plugin class
-    private static final Map<Class<? extends GloballyAttachbleListener>, GloballyAttachbleListener> pluginInstances = new HashMap<>();
+    private static final Map<Class<? extends GloballyAttachableListener>, GloballyAttachableListener> pluginInstances = new HashMap<>();
     //Map an event class to the name of the method it is supposed to call
     private static final Map<Class<? extends Event>, String> eventMethodNames = new HashMap<>();
     //Key: event class, value: List of plugin class instances that contain method corresponding to event
-    private static final Map<Class<? extends Event>, List<GloballyAttachbleListener>> eventPluginInstances = new HashMap<>();
+    private static final Map<Class<? extends Event>, List<GloballyAttachableListener>> eventPluginInstances = new HashMap<>();
     //Key: class of the listener for this event, value: event class
-    private static final Map<Class<? extends GloballyAttachbleListener>, Class<? extends Event>> listenerEvents = new HashMap<>();
+    private static final Map<Class<? extends GloballyAttachableListener>, Class<? extends Event>> listenerEvents = new HashMap<>();
 
+    private EventEmitter(){
+        throw new IllegalStateException("Utility classes cannot be instantiated.");
+    }
 
     /**
      * Initializes various maps used for event binding.
@@ -41,9 +44,9 @@ public class EventEmitter {
     private static void initMaps(){
         //Get method names for each type of event
         try{
-            ClassHelper.getClassesInPackage("listener").filter(intf -> intf != GloballyAttachbleListener.class).forEach(listener -> {
-                if(!GloballyAttachbleListener.class.isAssignableFrom(listener)){
-                    LOGGER.error("{} does not extend {}", listener.getSimpleName(), GloballyAttachbleListener.class.getSimpleName());
+            ClassHelper.getClassesInPackage("listener").filter(intf -> intf != GloballyAttachableListener.class).forEach(listener -> {
+                if(!GloballyAttachableListener.class.isAssignableFrom(listener)){
+                    LOGGER.error("{} does not extend {}", listener.getSimpleName(), GloballyAttachableListener.class.getSimpleName());
                     return;
                 }
                 if(listener.getMethods().length != 1){
@@ -59,7 +62,7 @@ public class EventEmitter {
                         continue;
                     }
                     //Cast safe
-                    listenerEvents.put((Class<? extends GloballyAttachbleListener>) listener, (Class<? extends Event>) paramType);
+                    listenerEvents.put((Class<? extends GloballyAttachableListener>) listener, (Class<? extends Event>) paramType);
 
                     //Ensure that the parameter type being checked extends Event
                     if(!Event.class.isAssignableFrom(paramType)){
@@ -77,7 +80,7 @@ public class EventEmitter {
         //Initialize single instances for each class in the "plugins" package & associated Event classes with list of plugin classes
         try {
             ClassHelper.getClassesInPackage("plugins").forEach(pluginClass -> {
-                if(ClassHelper.getInterfacesAsStream(pluginClass).noneMatch(clazz -> clazz == GloballyAttachbleListener.class)){
+                if(ClassHelper.getInterfacesAsStream(pluginClass).noneMatch(clazz -> clazz == GloballyAttachableListener.class)){
                     LOGGER.warn("{} does not implement any listeners, skipping event binding.", pluginClass.getSimpleName());
                     //Return here skips this iteration of the forEach loop
                     return;
@@ -85,7 +88,7 @@ public class EventEmitter {
 
                 String pluginName = pluginClass.getSimpleName();
                 try{
-                    LinkedHashMap pluginConfiguration = ConfigLoader.get(String.format("$.plugins.%s", pluginName), LinkedHashMap.class);
+                    LinkedHashMap<String, Object> pluginConfiguration = ConfigLoader.get(String.format("$.plugins.%s", pluginName), LinkedHashMap.class);
                     boolean enabled = (boolean) pluginConfiguration.get("enabled");
                     if(!enabled){
                         LOGGER.warn("{} not enabled in config.json, skipping event binding.", pluginClass.getSimpleName());
@@ -98,12 +101,11 @@ public class EventEmitter {
                     return;
                 }
 
-
                 try {
                     Constructor<?> ctor = pluginClass.getConstructor();
-                    GloballyAttachbleListener pluginInstance = (GloballyAttachbleListener) ctor.newInstance();
+                    GloballyAttachableListener pluginInstance = (GloballyAttachableListener) ctor.newInstance();
                     //Cast safe, if statement above ensures it can be cast
-                    pluginInstances.put((Class<? extends GloballyAttachbleListener>) pluginClass, pluginInstance);
+                    pluginInstances.put((Class<? extends GloballyAttachableListener>) pluginClass, pluginInstance);
                 } catch (NoSuchMethodException e) {
                     LOGGER.error("{} must have a public no-argument constructor.", pluginClass.getSimpleName());
                     LOGGER.error(e.getMessage());
@@ -118,7 +120,7 @@ public class EventEmitter {
                     LOGGER.error(e.getMessage());
                 }
 
-                ClassHelper.getInterfacesAsStream(pluginClass).filter(intf -> intf != GloballyAttachbleListener.class).forEach(intf -> {
+                ClassHelper.getInterfacesAsStream(pluginClass).filter(intf -> intf != GloballyAttachableListener.class).forEach(intf -> {
                     Class<? extends Event> event = listenerEvents.get(intf);
                     if((!eventPluginInstances.containsKey(event)) || eventPluginInstances.get(event) == null){
                         eventPluginInstances.put(event, new ArrayList<>());
@@ -169,7 +171,7 @@ public class EventEmitter {
 
         String methodName = eventMethodNames.get(event.getClass());
 
-        List<GloballyAttachbleListener> pluginsToRun = eventPluginInstances.get(event.getClass());
+        List<GloballyAttachableListener> pluginsToRun = eventPluginInstances.get(event.getClass());
 
         //If event doesn't have any plugins listening in on it, return
         if(pluginsToRun == null){

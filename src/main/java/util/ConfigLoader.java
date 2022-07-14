@@ -30,7 +30,6 @@ public class ConfigLoader {
             file = new File("src/main/resources/config.json");
             if(!file.exists()){
                 LOGGER.error("config.json does not exist. Exiting.");
-                System.err.println("config.json does not exist. Exiting.");
                 System.exit(1);
             }
         }

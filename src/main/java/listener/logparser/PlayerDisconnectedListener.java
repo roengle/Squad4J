@@ -1,9 +1,9 @@
 package listener.logparser;
 
 import event.logparser.PlayerDisconnectedEvent;
-import listener.GloballyAttachbleListener;
+import listener.GloballyAttachableListener;
 
 @FunctionalInterface
-public interface PlayerDisconnectedListener extends GloballyAttachbleListener {
+public interface PlayerDisconnectedListener extends GloballyAttachableListener {
     public void onPlayerDisconnected(PlayerDisconnectedEvent playerDisconnectedEvent);
 }

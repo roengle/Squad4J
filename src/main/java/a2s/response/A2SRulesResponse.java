@@ -7,15 +7,15 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * @author Robert Engle
- *
- * https://github.com/roengle/squadQuery/blob/main/src/response/A2SRulesResponse.java
+ * <a href="https://github.com/roengle/squadQuery/blob/main/src/response/A2SRulesResponse.java">squadQuery implementation</a>
  *
  * Class describing a response from an A2S_RULES query.
  *
  * For technical documentation on A2S_RULES queries, see the following:
  *
- * https://developer.valvesoftware.com/wiki/Server_queries#A2S_RULES
+ * <a href="https://developer.valvesoftware.com/wiki/Server_queries#A2S_RULES">A2S_RULES documentation</a>
+ *
+ * @author Robert Engle
  */
 public class A2SRulesResponse extends Response{
     private final Byte numRules;
@@ -87,9 +87,9 @@ public class A2SRulesResponse extends Response{
     @Override
     public String toString() {
         AtomicReference<String> rules = new AtomicReference<>("{");
-        ruleMap.forEach((k, v) -> {
-            rules.set(rules.get() + k + " : " + v + ", ");
-        });
+        ruleMap.forEach((k, v) ->
+                rules.set(rules.get() + k + " : " + v + ", ")
+        );
         rules.set(rules.get().substring(0, rules.get().length() - 2));
         rules.set(rules.get() + "}");
 
