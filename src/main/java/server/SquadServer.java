@@ -4,8 +4,6 @@ import a2s.response.A2SInfoResponse;
 import a2s.response.A2SRulesResponse;
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import com.jayway.jsonpath.JsonPathException;
 import entity.Player;
 import entity.Squad;
@@ -25,7 +23,16 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
+/**
+ * Class to represent the Squad server and it's attributes in memory.
+ *
+ * Provides getters for static variables in memory, which are updated through asynchronous threads and by
+ * receiving events.
+ *
+ * @author Robert Engle
+ */
 public class SquadServer {
     private static final Logger LOGGER = LoggerFactory.getLogger(SquadServer.class);
 
@@ -121,6 +128,9 @@ public class SquadServer {
                     LOGGER.error("Asynchronous thread threw an exception", e);
                 } catch (InterruptedException e) {
                     LOGGER.error("Asynchronous thread interrupted", e);
+                    //TODO: Test this for compliance
+                    Thread.currentThread().interrupt();
+                    future.cancel(true);
                 } catch (TimeoutException e) {
                     LOGGER.warn("Timeout reading admin list from {}", sourceRef);
                 }
@@ -128,6 +138,7 @@ public class SquadServer {
                 LOGGER.trace("Read {} admins from {}", adminSteamIds.size(), source);
             }
 
+            //Update A2S and RCON information first so Squad server has attributes for them in memory
             A2SUpdater.updateA2S();
             RconUpdater.updateRcon();
 
@@ -243,9 +254,7 @@ public class SquadServer {
             case POSSESSED_ADMIN_CAM:
                 LOGGER.trace("Updating SquadServer for POSSESSED_ADMIN_CAM");
                 PossessedAdminCameraEvent possessedAdminCameraEvent = (PossessedAdminCameraEvent) ev;
-                getPlayerBySteamId(possessedAdminCameraEvent.getSteamid()).ifPresent(p -> {
-                    adminsInAdminCam.add(p);
-                });
+                getPlayerBySteamId(possessedAdminCameraEvent.getSteamid()).ifPresent(p -> adminsInAdminCam.add(p));
                 LOGGER.trace("Done updating SquadServer for POSSESSED_ADMIN_CAM");
                 break;
             case SQUADLIST_UPDATED:
@@ -257,11 +266,11 @@ public class SquadServer {
             case UNPOSSESSED_ADMIN_CAM:
                 LOGGER.trace("Updating SquadServer for UNPOSSESSED_ADMIN_CAM");
                 UnpossessedAdminCameraEvent unpossessedAdminCameraEvent = (UnpossessedAdminCameraEvent) ev;
-                getPlayerBySteamId(unpossessedAdminCameraEvent.getSteamid()).ifPresent(p -> {
-                    adminsInAdminCam.remove(p);
-                });
+                getPlayerBySteamId(unpossessedAdminCameraEvent.getSteamid()).ifPresent(p -> adminsInAdminCam.remove(p));
                 LOGGER.trace("Done updating SquadServer for UNPOSSESSED_ADMIN_CAM");
                 break;
+            default:
+                LOGGER.trace("SquadServer received non-supported event. Ignoring.");
         }
     }
 

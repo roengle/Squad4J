@@ -19,6 +19,15 @@ import java.util.concurrent.atomic.AtomicReference;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class whose responsibility is parsing lines passed to it from {@link server.tailer.LogTailer}.
+ *
+ * Parsing lines involves determining what type of {@link Event} a specific line should emit, creating said event,
+ * and passing it to the {@link EventEmitter}, which is responsible for passing the event to the {@link SquadServer}
+ * and to any plugins which are event-bound.
+ *
+ * @author Robert Engle
+ */
 public class LogParser {
     private static final Map<Pattern, EventType> logPatterns = new HashMap<>();
     private static final Logger LOGGER = LoggerFactory.getLogger(LogParser.class);
@@ -248,6 +257,8 @@ public class LogParser {
                                     matcher.group(2)
                             ));
                             break;
+                        default:
+                            LOGGER.trace("Unrecognized event passed to LogParser, ignoring.");
                     }
                 }catch (ParseException e){
                     LOGGER.error("Error parsing date.");

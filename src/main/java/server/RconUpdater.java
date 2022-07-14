@@ -20,6 +20,12 @@ import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Class which has the responsibility of updating information for {@link SquadServer} that is obtained through the
+ * RCON console.
+ *
+ * @author Robert Engle
+ */
 public class RconUpdater {
     private static final Logger LOGGER = LoggerFactory.getLogger(RconUpdater.class);
 
@@ -38,19 +44,23 @@ public class RconUpdater {
         if(initialized)
             throw new IllegalStateException(RconUpdater.class.getSimpleName() + " has already been initialized.");
 
-        GlobalThreadPool.getScheduler().scheduleAtFixedRate(() -> {
-            updateRcon();
-        }, 1, 30, TimeUnit.SECONDS);
+        GlobalThreadPool.getScheduler().scheduleAtFixedRate(RconUpdater::updateRcon, 1, 30, TimeUnit.SECONDS);
 
         initialized = true;
     }
 
+    /**
+     * Helper method to update information retrieved through RCON: player list, squad list, and layer info.
+     */
     public static void updateRcon() {
         updatePlayerList();
         updateSquadList();
         updateLayerInfo();
     }
 
+    /**
+     * Updates the player list by querying the RCON console for a player list.
+     */
     protected static void updatePlayerList(){
         LOGGER.info("Retrieving player list.");
         String response = Rcon.command("ListPlayers");
@@ -80,6 +90,9 @@ public class RconUpdater {
         EventEmitter.emit(event);
     }
 
+    /**
+     * Updates the squad list by querying the RCON console.
+     */
     protected static void updateSquadList(){
         LOGGER.info("Retrieving squad list.");
         String response = Rcon.command("ListSquads");
@@ -113,6 +126,11 @@ public class RconUpdater {
         EventEmitter.emit(event);
     }
 
+    /**
+     * Updates the layer information by querying the RCON console.
+     *
+     * Updates both the current and next layers/maps.
+     */
     protected static void updateLayerInfo(){
         LOGGER.info("Retrieving layer information");
         String currentLayer = "";
@@ -143,6 +161,4 @@ public class RconUpdater {
         LOGGER.info("Retrieved layer information");
         EventEmitter.emit(event);
     }
-
-
 }

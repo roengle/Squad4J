@@ -51,16 +51,12 @@ public class ConfigLoader {
 
     }
 
-    public static void init(){
-
-    }
-
     private ConfigLoader(){
         throw new UnsupportedOperationException("You cannot instantiate this class");
     }
 
     /**
-     * Gets an {@link Object} from the configuation file given the path.
+     * Gets an {@link Object} from the configuration file given the path.
      *
      * See <a href="https://github.com/json-path/JsonPath#operators">this page</a> for more information on JSON paths.
      *
@@ -68,8 +64,7 @@ public class ConfigLoader {
      * @return the value at the given path
      */
     public static Object get(String path){
-        Object returnVal = JsonPath.read(document, path);
-        return returnVal;
+        return JsonPath.read(document, path);
     }
 
     /**
