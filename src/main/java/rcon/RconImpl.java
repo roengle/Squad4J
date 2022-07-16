@@ -30,6 +30,8 @@ import java.util.function.Consumer;
  *
  * @author Robert Engle
  */
+
+//TODO: Improve implementation for slower connections
 public class RconImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(RconImpl.class);
 

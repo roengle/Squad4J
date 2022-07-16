@@ -138,8 +138,8 @@ public class RconUpdater {
         String currentMap = "";
         String nextMap = "";
 
-        LOGGER.trace("Getting current map");
         String response = Rcon.command("ShowCurrentMap");
+        LOGGER.trace("Getting current map. Response: {}", response);
         Matcher matcher = currentLayerPattern.matcher(response);
         if(matcher.find()){
             currentMap = matcher.group(1);
@@ -147,8 +147,8 @@ public class RconUpdater {
             LOGGER.trace("Current layer is {}", currentLayer);
         }
 
-        LOGGER.trace("Getting next map");
         response = Rcon.command("ShowNextMap");
+        LOGGER.trace("Retrieved next map. Response: {}", response);
         matcher = nextLayerPattern.matcher(response);
         if(matcher.find()){
             nextMap = matcher.group(1);

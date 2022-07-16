@@ -5,6 +5,7 @@ import a2s.response.A2SInfoResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import plugins.DBLog;
+import server.LayerClassnameFormatter;
 import server.SquadServer;
 import util.ConfigLoader;
 
@@ -288,7 +289,12 @@ public class MySQLConnector extends Connector{
             LOGGER.debug("Most recent match in DB does not match current or does not exist, creating new match.");
             //Insert new match since current match is not being tracked
             //TODO: Fill dlc and classname values properly
-            insertMatch("", "", "", currentMap, currentLayer, null);
+            insertMatch("",
+                    LayerClassnameFormatter.formatMap(currentMap),
+                    LayerClassnameFormatter.formatLayer(currentLayer),
+                    currentMap,
+                    currentLayer,
+                    null);
             //Recalling this method will get the newly-made match id
             return getCurrentMatchId();
         } catch (SQLException e) {

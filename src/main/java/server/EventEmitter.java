@@ -166,7 +166,7 @@ public class EventEmitter {
      * @param event the event to emit.
      */
     public static void emit(Event event) {
-        LOGGER.trace("New event emitted: {}", event);
+        LOGGER.debug("New event emitted: {}", event);
         SquadServer.receiveEvent(event);
 
         String methodName = eventMethodNames.get(event.getClass());

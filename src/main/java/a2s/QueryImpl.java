@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.charset.StandardCharsets;
@@ -29,10 +30,12 @@ import java.util.function.Supplier;
  *
  * https://developer.valvesoftware.com/wiki/Server_queries
  */
+
+//TODO: Improve implementation for slower connections
 public class QueryImpl {
     private static final Logger LOGGER = LoggerFactory.getLogger(QueryImpl.class);
 
-    private final DatagramSocket socket;
+    private DatagramSocket socket;
     private final String address;
     private final Integer port;
 
@@ -40,6 +43,14 @@ public class QueryImpl {
         this.socket = new DatagramSocket();
         this.address = address;
         this.port = port;
+    }
+
+    private void newSocket(){
+        try {
+            this.socket = new DatagramSocket();
+        } catch (SocketException e) {
+            LOGGER.error("Error reassigning socket.", e);
+        }
     }
 
     protected A2SInfoResponse queryInfo() throws IOException {
@@ -142,18 +153,21 @@ public class QueryImpl {
         CompletableFuture<DatagramPacket> future = getFuture(socket);
 
         try {
-            return future.get(2, TimeUnit.SECONDS);
+            return future.get(4, TimeUnit.SECONDS);
         } catch (InterruptedException | ExecutionException e) {
             LOGGER.error(e.getMessage());
         } catch(TimeoutException timeout){
-            LOGGER.warn("Query timed out after 2 seconds, retrying.", timeout);
+            LOGGER.warn("Query timed out after 2 seconds, retrying.");
             try{
+                socket = new DatagramSocket();
                 CompletableFuture<DatagramPacket> newFuture = getFuture(socket);
-                return newFuture.get(2, TimeUnit.SECONDS);
+                return newFuture.get(4, TimeUnit.SECONDS);
             } catch (ExecutionException | InterruptedException e) {
                 LOGGER.error(e.getMessage());
             } catch (TimeoutException retryTimeout) {
                 LOGGER.error("Query timed out again after retrying.", retryTimeout);
+            } catch (SocketException e) {
+                LOGGER.error("Error reassigning socket.", e);
             }
         }
         return null;

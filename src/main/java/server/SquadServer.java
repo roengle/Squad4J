@@ -172,6 +172,9 @@ public class SquadServer {
                 A2SInfoResponse info = a2sEvent.getResponse().getInfo();
                 A2SRulesResponse rules = a2sEvent.getResponse().getRules();
 
+                if(info == null || rules == null)
+                    break;
+
                 serverName = info.getName();
                 maxPlayers = (int) info.getMaxPlayers();
 
