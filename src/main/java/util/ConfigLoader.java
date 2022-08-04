@@ -27,11 +27,8 @@ public class ConfigLoader {
         String json = "{}";
         File file = new File("config.json");
         if(!file.exists()){
-            file = new File("src/main/resources/config.json");
-            if(!file.exists()){
-                LOGGER.error("config.json does not exist. Exiting.");
-                System.exit(1);
-            }
+            LOGGER.error("config.json does not exist. Exiting.");
+            System.exit(1);
         }
         try {
             InputStream is = new FileInputStream("config.json");

@@ -1,21 +1,21 @@
 {
-    "server": {
-      "id": 1,
-      "host": "",
-      "queryPort": 27165,
-      "rconPort": 21114,
-      "rconPassword": "",
-      "logFilePath":"",
-      "adminLists": [
-        {
-          "type": "remote",
-          "source": "http://yourwebsite.com/Admins.cfg"
-        },
-        {
-          "type": "local",
-          "source": "/home/squadserver/SquadGame/ServerConfig/Admins.cfg"
-        }
-      ]
+  "server": {
+    "id": 1,
+    "host": "",
+    "queryPort": 27165,
+    "rconPort": 21114,
+    "rconPassword": "",
+    "logFilePath":"",
+    "adminLists": [
+      {
+        "type": "remote",
+        "source": "http://yourwebsite.com/Admins.cfg"
+      },
+      {
+        "type": "local",
+        "source": "/home/squadserver/SquadGame/ServerConfig/Admins.cfg"
+      }
+    ]
   },
   "connectors": {
     "discord":{
