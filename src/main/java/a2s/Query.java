@@ -40,6 +40,7 @@ public class Query {
             LOGGER.error(e.getMessage());
         }
         initialized = true;
+        LOGGER.info("Query service started.");
     }
 
     public static A2SCombinedResponse queryBoth(){

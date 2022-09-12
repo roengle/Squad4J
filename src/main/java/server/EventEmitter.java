@@ -186,7 +186,7 @@ public class EventEmitter {
                 LOGGER.error(e.getMessage());
             } catch (InvocationTargetException e) {
                 LOGGER.error("{} threw an exception running on plugin {}.", methodName, plugin.getClass().getSimpleName());
-                LOGGER.error(e.getMessage());
+                LOGGER.error("", e);
             } catch (IllegalAccessException e) {
                 LOGGER.error("{} is inaccessible. Ensure that the method is public.", methodName);
                 LOGGER.error(e.getMessage());

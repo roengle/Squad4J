@@ -48,7 +48,7 @@ public class AdminCamTracker implements PossessedAdminCameraListener, Unpossesse
 
 ## Running Code Periodically
 To have your plugin run code periodically, you can use executor services and schedulers provided by Java. For convenience,
-Squad4J provides a global through pool through `GlobalThreadPool` that contains methods to get the global `ExecutorService` 
+Squad4J provides a global thread pool through `GlobalThreadPool` that contains methods to get the global `ExecutorService` 
 and `ScheduledExecutorService`. See [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html) and 
 [ScheduledExecutorService](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/ScheduledExecutorService.html) for
 documentation on how to use these.

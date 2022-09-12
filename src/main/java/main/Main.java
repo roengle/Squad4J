@@ -24,7 +24,7 @@ import java.util.Date;
  *  |_____/ \__, |\__,_|\__,_|\__,_|  |_| \____/
  *             | |
  *             |_|
- *
+ * <p>
  * Main entry point for Squad4J. Initializes all services needed to run Squad4J.
  *
  * @author Robert Engle
@@ -42,7 +42,7 @@ public class Main {
         /* Initialize services */
         //Initialize RCON service
         Rcon.init();
-        //Initailize query service
+        //Initialize query service
         Query.init();
         //Initialize log tailer service
         TailerService.init();
@@ -54,8 +54,8 @@ public class Main {
         /* Initialize connectors */
         MySQLConnector.init();
 
-        /* Initialize event emitter last */
-        //Intialize event emitter service
+        /* IMPORTANT: Initialize event emitter last */
+        //Initialize event emitter service
         EventEmitter.init();
 
         //TODO: Remove me after debugging
