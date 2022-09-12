@@ -36,7 +36,7 @@ public class DBLog implements A2SUpdatedListener, NewGameListener, PlayerDiedLis
 
             MySQLConnector.insertPlayerCount(time, playerCount, publicQueue, reserveQueue, match);
         }catch (Exception e){
-            LOGGER.error("Exception in DBLog#onA2SUpdated. ", e);
+            LOGGER.error("Exception in DBLog#onA2SUpdated: ", e);
         }
     }
 

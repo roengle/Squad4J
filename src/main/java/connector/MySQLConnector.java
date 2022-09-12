@@ -4,11 +4,11 @@ import a2s.Query;
 import a2s.response.A2SInfoResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import plugins.DBLog;
-import server.LayerClassnameFormatter;
+import util.ClassnameUtils;
 import server.SquadServer;
 import util.ConfigLoader;
 
+import java.io.IOException;
 import java.sql.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -288,10 +288,10 @@ public class MySQLConnector extends Connector{
             rs.close();
             LOGGER.debug("Most recent match in DB does not match current or does not exist, creating new match.");
             //Insert new match since current match is not being tracked
-            //TODO: Fill dlc and classname values properly
-            insertMatch("",
-                    LayerClassnameFormatter.formatMap(currentMap),
-                    LayerClassnameFormatter.formatLayer(currentLayer),
+            //TODO: Fill dlc properly
+            insertMatch("Game",
+                    ClassnameUtils.getMapClassname(currentLayer),
+                    ClassnameUtils.getLayerClassname(currentLayer),
                     currentMap,
                     currentLayer,
                     null);
@@ -299,6 +299,9 @@ public class MySQLConnector extends Connector{
             return getCurrentMatchId();
         } catch (SQLException e) {
             LOGGER.error("SQL exception while getting current match.", e);
+            return null;
+        } catch (IOException e) {
+            LOGGER.error("IO error getting layer names", e);
             return null;
         }
     }
@@ -313,7 +316,7 @@ public class MySQLConnector extends Connector{
                     serverID + "," +
                     (match == null ? "NULL" : match) +
                     ");";
-            LOGGER.trace(query);
+            LOGGER.trace("Executing query: {}", query);
             statement.executeUpdate(query);
         } catch (SQLException e) {
             LOGGER.error("SQL exception inserting player count.", e);
