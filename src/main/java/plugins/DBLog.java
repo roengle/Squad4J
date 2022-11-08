@@ -48,7 +48,7 @@ public class DBLog implements A2SUpdatedListener, NewGameListener, PlayerDiedLis
         Date startTime = newGameEvent.getTime();
 
         //TODO: Properly use map and layer classnames
-        MySQLConnector.insertMatch(dlc, "null", "null",
+        MySQLConnector.insertMatch(dlc, map, layer,
                 map, layer, startTime);
 
     }

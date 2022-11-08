@@ -50,7 +50,7 @@ public class RconImpl {
 
     private final List<Consumer<RconPacket>> onPacketConsumers = new ArrayList<>();
 
-    public static int SERVERDATA_RESPONSE_VALUE = 0;
+    public static final int SERVERDATA_RESPONSE_VALUE = 0;
     //This one isn't technically defined in Source RCON Protocol, but is used for some games such as Squad
     public static final int SERVERDATA_BROADCAST = 1;
     public static final int SERVERDATA_EXECCOMMAND = 2;
